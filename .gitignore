@@ -1,0 +1,10 @@
+.DS_Store
+/node_modules/
+/src/node_modules/@sapper/
+yarn-error.log
+/cypress/screenshots/
+/__sapper__/
+public/assets/css/f*.css
+public/assets/css/animation.css
+public/assets/font/
+package-lock.json
