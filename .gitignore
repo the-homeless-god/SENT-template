@@ -8,3 +8,4 @@ public/assets/css/f*.css
 public/assets/css/animation.css
 public/assets/font/
 package-lock.json
+.env
