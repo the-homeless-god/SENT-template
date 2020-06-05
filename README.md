@@ -12,7 +12,7 @@ The default [Sapper](https://github.com/sveltejs/sapper) template, available for
 
 ```bash
 # for Rollup
-npx degit "Zimtir/SENT-template#rollup" my-app
+npx degit "Zimtir/SENT-template" my-app
 ```
 
 ### Using GitHub templates
