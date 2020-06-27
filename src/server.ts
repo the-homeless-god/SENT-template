@@ -17,6 +17,8 @@ const express = ServerTool.initExpress({
   }
 })
 
+express.app.use(sapper.middleware())
+
 express.app.get('/status', (req, res, next) => {
   res.send({
     status: 200,
