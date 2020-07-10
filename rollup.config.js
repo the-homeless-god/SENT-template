@@ -4,12 +4,13 @@ import commonjs from 'rollup-plugin-commonjs'
 import svelte from 'rollup-plugin-svelte'
 import babel from 'rollup-plugin-babel'
 import { terser } from 'rollup-plugin-terser'
-import config from 'sapper/config/rollup.js'
-import pkg from './package.json'
-import json from 'rollup-plugin-json';
+import config from 'sapper/config/rollup'
+import json from 'rollup-plugin-json'
 
 import { createEnv, preprocess, readConfigFile } from 'svelte-ts-preprocess'
 import typescript from 'rollup-plugin-typescript2'
+import { builtinModules } from 'module'
+import pkg from './package.json'
 
 const env = createEnv()
 const compilerOptions = readConfigFile(env)
@@ -17,20 +18,19 @@ const opts = {
   env,
   compilerOptions: {
     ...compilerOptions,
-    allowNonTsExtensions: true
-  }
+    allowNonTsExtensions: true,
+  },
 }
 
 const mode = process.env.NODE_ENV
 const dev = mode === 'development'
 const legacy = !!process.env.SAPPER_LEGACY_BUILD
 
-const onwarn = (warning, onwarn) =>
-  (warning.code === 'CIRCULAR_DEPENDENCY' &&
-    /[/\\]@sapper[/\\]/.test(warning.message)) ||
-  onwarn(warning)
-const dedupe = importee =>
-  importee === 'svelte' || importee.startsWith('svelte/')
+const onwarn = (warning, onwWarning) => (warning.code === 'CIRCULAR_DEPENDENCY'
+    && /[/\\]@sapper[/\\]/.test(warning.message))
+  || onwWarning(warning)
+
+const dedupe = (importee) => importee === 'svelte' || importee.startsWith('svelte/')
 
 export default {
   client: {
@@ -39,22 +39,22 @@ export default {
     plugins: [
       replace({
         'process.browser': true,
-        'process.env.NODE_ENV': JSON.stringify(mode)
+        'process.env.NODE_ENV': JSON.stringify(mode),
       }),
       svelte({
         dev,
         hydratable: true,
         emitCss: true,
-        preprocess: preprocess(opts)
+        preprocess: preprocess(opts),
       }),
       resolve({
         browser: true,
-        dedupe
+        dedupe,
       }),
       commonjs(),
       typescript(),
-      legacy &&
-        babel({
+      legacy
+        && babel({
           extensions: ['.js', '.mjs', '.html', '.svelte'],
           runtimeHelpers: true,
           exclude: ['node_modules/@babel/**'],
@@ -62,28 +62,28 @@ export default {
             [
               '@babel/preset-env',
               {
-                targets: '> 0.25%, not dead'
-              }
-            ]
+                targets: '> 0.25%, not dead',
+              },
+            ],
           ],
           plugins: [
             '@babel/plugin-syntax-dynamic-import',
             [
               '@babel/plugin-transform-runtime',
               {
-                useESModules: true
-              }
-            ]
-          ]
+                useESModules: true,
+              },
+            ],
+          ],
         }),
 
-      !dev &&
-        terser({
-          module: true
-        })
+      !dev
+        && terser({
+          module: true,
+        }),
     ],
 
-    onwarn
+    onwarn,
   },
 
   server: {
@@ -92,15 +92,15 @@ export default {
     plugins: [
       replace({
         'process.browser': false,
-        'process.env.NODE_ENV': JSON.stringify(mode)
+        'process.env.NODE_ENV': JSON.stringify(mode),
       }),
       svelte({
         generate: 'ssr',
         dev,
-        preprocess: preprocess(dev)
+        preprocess: preprocess(dev),
       }),
       resolve({
-        dedupe
+        dedupe,
       }),
       commonjs(),
       typescript(),
@@ -122,31 +122,31 @@ export default {
         compact: true, // Default: false
 
         // generate a named export for every property of the JSON object
-        namedExports: true // Default: true
-      })
+        namedExports: true, // Default: true
+      }),
     ],
     external: Object.keys(pkg.dependencies).concat(
-      require('module').builtinModules ||
-        Object.keys(process.binding('natives'))
+      builtinModules || Object.keys(process.binding('natives')),
     ),
 
-    onwarn
+    onwarn,
   },
 
   serviceworker: {
-    input: config.serviceworker.input(), // .replace(/\.js$/, '.ts'), Haven't fixed the Typescript compiler errors for this file yet
+    // .replace(/\.js$/, '.ts'), Haven't fixed the Typescript compiler errors for this file yet
+    input: config.serviceworker.input(),
     output: config.serviceworker.output(),
     plugins: [
       resolve(),
       replace({
         'process.browser': true,
-        'process.env.NODE_ENV': JSON.stringify(mode)
+        'process.env.NODE_ENV': JSON.stringify(mode),
       }),
       commonjs(),
       typescript(),
-      !dev && terser()
+      !dev && terser(),
     ],
 
-    onwarn
-  }
+    onwarn,
+  },
 }
