@@ -1,15 +1,15 @@
+import { builtinModules } from 'module'
+import babel from 'rollup-plugin-babel'
+import commonjs from 'rollup-plugin-commonjs'
+import json from 'rollup-plugin-json'
 import resolve from 'rollup-plugin-node-resolve'
 import replace from 'rollup-plugin-replace'
-import commonjs from 'rollup-plugin-commonjs'
-import svelte from 'rollup-plugin-svelte'
-import babel from 'rollup-plugin-babel'
 import { terser } from 'rollup-plugin-terser'
-import config from 'sapper/config/rollup'
-import json from 'rollup-plugin-json'
-
-import { createEnv, preprocess, readConfigFile } from 'svelte-ts-preprocess'
 import typescript from 'rollup-plugin-typescript2'
-import { builtinModules } from 'module'
+import svelte from 'rollup-plugin-svelte'
+import config from 'sapper/config/rollup'
+import { createEnv, preprocess, readConfigFile } from 'svelte-ts-preprocess'
+
 import pkg from './package.json'
 
 const env = createEnv()
@@ -26,11 +26,13 @@ const mode = process.env.NODE_ENV
 const dev = mode === 'development'
 const legacy = !!process.env.SAPPER_LEGACY_BUILD
 
-const onwarn = (warning, onwWarning) => (warning.code === 'CIRCULAR_DEPENDENCY'
-    && /[/\\]@sapper[/\\]/.test(warning.message))
-  || onwWarning(warning)
+const onwarn = (warning, onwWarning) =>
+  (warning.code === 'CIRCULAR_DEPENDENCY' &&
+    /[/\\]@sapper[/\\]/.test(warning.message)) ||
+  onwWarning(warning)
 
-const dedupe = (importee) => importee === 'svelte' || importee.startsWith('svelte/')
+const dedupe = (importee) =>
+  importee === 'svelte' || importee.startsWith('svelte/')
 
 export default {
   client: {
@@ -53,8 +55,8 @@ export default {
       }),
       commonjs(),
       typescript(),
-      legacy
-        && babel({
+      legacy &&
+        babel({
           extensions: ['.js', '.mjs', '.html', '.svelte'],
           runtimeHelpers: true,
           exclude: ['node_modules/@babel/**'],
@@ -77,8 +79,8 @@ export default {
           ],
         }),
 
-      !dev
-        && terser({
+      !dev &&
+        terser({
           module: true,
         }),
     ],
@@ -126,7 +128,7 @@ export default {
       }),
     ],
     external: Object.keys(pkg.dependencies).concat(
-      builtinModules || Object.keys(process.binding('natives')),
+      builtinModules || Object.keys(process.binding('natives'))
     ),
 
     onwarn,

@@ -14,19 +14,40 @@
 - [Sapper.js](https://sapper.svelte.dev/)
 - [TypeScript](https://www.typescriptlang.org/)
 
+## Usage
+
+```bash
+# for Rollup
+npx degit "Zimtir/SENT-template" my-app
+```
+
+### Running the project
+
+However you get the code, you can install dependencies and run the project in development mode with:
+
+```bash
+cd my-app
+npm install # or yarn
+npm run dev
+```
+
+Open up [localhost:3000](http://localhost:3000) and start clicking around.
+
+Consult [sapper.svelte.dev](https://sapper.svelte.dev) for help getting started.
+
 ## Formatter usage
 
 ```shell
-# run the formatting for TypeScript/JavaScript/Svelte files
+# TypeScript/JavaScript/Svelte files
 npm run prettier
 
-# run the formatting Prettier only for TypeScript
+# TypeScript files
 npm run prettier:typescript
 
-# run the formatting only for JavaScript
+# JavaScript files
 npm run prettier:javascript
 
-# run the formatting only for Svelte
+# Svelte files
 npm run prettier:svelte
 ```
 
@@ -45,39 +66,12 @@ npm run eslint:dump
 npm run eslint:fix
 ```
 
-## Getting started
+## Update packages
 
-### Using `degit`
+```shell
+# show all packages that can be updated
+npm run update:pull
 
-[`degit`](https://github.com/Rich-Harris/degit) is a scaffolding tool that lets you create a directory from a branch in a repository. Use either the `rollup` or `webpack` branch in `sapper-template`:
-
-```bash
-# for Rollup
-npx degit "Zimtir/SENT-template" my-app
+# increase and install versions of packages
+npm run update:install
 ```
-
-### Using GitHub templates
-
-Alternatively, you can use GitHub's template feature with the [sapper-template-rollup](https://github.com/Zimtir/SENT-template)
-
-### Running the project
-
-However you get the code, you can install dependencies and run the project in development mode with:
-
-```bash
-cd my-app
-npm install # or yarn
-npm run dev
-```
-
-Open up [localhost:3000](http://localhost:3000) and start clicking around.
-
-Consult [sapper.svelte.dev](https://sapper.svelte.dev) for help getting started.
-
-# TODO
-
-- Redis
-- MongoDB
-- MySQL
-- Docker
-- K8S
