@@ -11,20 +11,20 @@ const express = ServerTool.initExpress({
   listen: true,
   static: {
     enabled: true,
-    path: 'public'
+    path: 'public',
   },
   compression: {
     enabled: true,
-    threshold: 0
-  }
+    threshold: 0,
+  },
 })
 
 express.app.use(sapper.middleware())
 
-express.app.get('/status', (req, res, next) => {
+express.app.get('/status', (req, res) => {
   res.send({
     status: 200,
-    message: 'OK'
+    message: 'OK',
   })
 })
 

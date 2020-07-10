@@ -2,22 +2,24 @@
 
 ## Sapper.js, Express.js, Node.js, Typescript template
 
-The default [Sapper](https://github.com/sveltejs/sapper) template, available for Rollup and webpack.
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
+[![code formatting: eslint](https://img.shields.io/badge/code%20linter-eslint-brightgreen?style=flat-square)](https://github.com/eslint/eslint)
 
-## Getting started
+## List of features:
 
-### Using `degit`
+- [ESLint](https://eslint.org/)
+- [Express.js](https://www.npmjs.com/package/express)
+- [Node.js](https://nodejs.org/en/)
+- [Prettier](https://prettier.io/)
+- [Sapper.js](https://sapper.svelte.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
 
-[`degit`](https://github.com/Rich-Harris/degit) is a scaffolding tool that lets you create a directory from a branch in a repository. Use either the `rollup` or `webpack` branch in `sapper-template`:
+## Usage
 
 ```bash
 # for Rollup
 npx degit "Zimtir/SENT-template" my-app
 ```
-
-### Using GitHub templates
-
-Alternatively, you can use GitHub's template feature with the [sapper-template-rollup](https://github.com/Zimtir/SENT-template)
 
 ### Running the project
 
@@ -33,10 +35,43 @@ Open up [localhost:3000](http://localhost:3000) and start clicking around.
 
 Consult [sapper.svelte.dev](https://sapper.svelte.dev) for help getting started.
 
-# TODO
+## Formatter usage
 
-- Redis
-- MongoDB
-- MySQL
-- Docker
-- K8S
+```shell
+# TypeScript/JavaScript/Svelte files
+npm run prettier
+
+# TypeScript files
+npm run prettier:typescript
+
+# JavaScript files
+npm run prettier:javascript
+
+# Svelte files
+npm run prettier:svelte
+```
+
+## Linter usage
+
+```shell
+# run the linting
+npm run eslint
+
+# show configuration of ESLint
+# may be useful at pipeline usage
+npm run eslint:dump
+
+
+# fix code by ESLint
+npm run eslint:fix
+```
+
+## Update packages
+
+```shell
+# show all packages that can be updated
+npm run update:pull
+
+# increase and install versions of packages
+npm run update:install
+```
