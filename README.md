@@ -1,9 +1,23 @@
 # SENT-template
 
-## Sapper.js, Express.js, Node.js, Typescript template
+https://github.com/Zimtir/SENT-template
+
+## Sapper.js, Express.js, Node.js, Typescript and other template
+
+![GitHub package.json version](https://img.shields.io/github/package-json/v/Zimtir/SENT-template)
 
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 [![code formatting: eslint](https://img.shields.io/badge/code%20linter-eslint-brightgreen?style=flat-square)](https://github.com/eslint/eslint)
+
+![Docker Image Size (tag)](https://img.shields.io/docker/image-size/9e3u2f0b1/sent-template/latest?logo=Docker)
+![Docker Stars](https://img.shields.io/docker/stars/9e3u2f0b1/sent-template?logo=Docker)
+
+![GitHub package.json dependency version (dev dep on branch)](https://img.shields.io/github/package-json/dependency-version/Zimtir/SENT-template/dev/rollup?color=green&logo=Rollup)
+![GitHub package.json dependency version (dev dep on branch)](https://img.shields.io/github/package-json/dependency-version/Zimtir/SENT-template/dev/sapper?color=green)
+![GitHub package.json dependency version (dev dep on branch)](https://img.shields.io/github/package-json/dependency-version/Zimtir/SENT-template/dev/svelte?color=green)
+![GitHub package.json dependency version (dev dep on branch)](https://img.shields.io/github/package-json/dependency-version/Zimtir/SENT-template/dev/eslint?color=green)
+![GitHub package.json dependency version (dev dep on branch)](https://img.shields.io/github/package-json/dependency-version/Zimtir/SENT-template/dev/prettier?color=green)
+![GitHub package.json dependency version (prod)](https://img.shields.io/github/package-json/dependency-version/Zimtir/SENT-template/typescript?color=green)
 
 ## List of features:
 
@@ -13,19 +27,21 @@
 - [Prettier](https://prettier.io/)
 - [Sapper.js](https://sapper.svelte.dev/)
 - [TypeScript](https://www.typescriptlang.org/)
+- [Docker](https://www.docker.com/)
+- [Docker Compose](https://docs.docker.com/compose/)
 
 ## Usage
 
-```bash
+```shell
 # for Rollup
 npx degit "Zimtir/SENT-template" my-app
 ```
 
-### Running the project
+### Running the project without Docker
 
 However you get the code, you can install dependencies and run the project in development mode with:
 
-```bash
+```shell
 cd my-app
 npm install # or yarn
 npm run dev
@@ -34,6 +50,28 @@ npm run dev
 Open up [localhost:3000](http://localhost:3000) and start clicking around.
 
 Consult [sapper.svelte.dev](https://sapper.svelte.dev) for help getting started.
+
+### Running the project with Docker & Docker Compose
+
+```shell
+docker-compose up
+```
+
+Open up [localhost:3000](http://localhost:3000) and start clicking around.
+
+#### Docker scripts
+
+```shell
+
+# will build and deploy container locally
+sh scripts/docker-local-build-and-deploy.sh
+
+# will build and publish container to registry
+sh scripts/docker-local-build-and-publish.sh
+
+# will remove all containers & images
+sh scripts/docker-remove-all
+```
 
 ## Formatter usage
 

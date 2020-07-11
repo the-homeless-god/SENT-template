@@ -1,0 +1,17 @@
+version: '3.3'
+
+services:
+  sent-template:
+    image: 9e3u2f0b1/sent-template:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: npm run start
+    restart: unless-stopped
+    ports:
+      - '3000:3000'
+    volumes:
+      - node_modules:/usr/app/node_modules
+
+volumes:
+  node_modules:
