@@ -1,7 +1,7 @@
 {
   "name": "sent-template",
   "description": "Svelte Express Node Typescript",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "scripts": {
     "build": "sapper build --legacy",
     "cy:run": "cypress run",
