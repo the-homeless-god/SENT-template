@@ -1,7 +1,5 @@
 // if you use VS Code, then this goes in $PROJECT_ROOT
 
-const { preprocess } = require('svelte-ts-preprocess')
+import preprocess from 'svelte-ts-preprocess'
 
-module.exports = {
-  preprocess: preprocess(),
-}
+export const sveltePreprocess = preprocess()

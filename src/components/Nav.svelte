@@ -1,5 +1,13 @@
-<script>
-  export let segment;
+<script lang="typescript">
+  import { logger } from '../helpers/logger.helper'
+
+  export let segment: string = ''
+
+  const showSegment = (segment: string) => {
+    logger(segment)
+  }
+
+  showSegment(segment)
 </script>
 
 <style>
@@ -18,7 +26,7 @@
 
   /* clearfix */
   ul::after {
-    content: "";
+    content: '';
     clear: both;
   }
 
@@ -35,7 +43,7 @@
 
   .selected::after {
     position: absolute;
-    content: "";
+    content: '';
     width: calc(100% - 1em);
     height: 2px;
     background-color: rgb(255, 62, 0);
