@@ -1,3 +1,3 @@
-export const logger = (args: any): void => {
+export const logger = (args: unknown): void => {
   console.log(args)
 }
