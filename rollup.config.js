@@ -1,13 +1,13 @@
-import { builtinModules } from 'module'
-import babel from 'rollup-plugin-babel'
-import commonjs from 'rollup-plugin-commonjs'
-import json from 'rollup-plugin-json'
-import resolve from 'rollup-plugin-node-resolve'
-import replace from 'rollup-plugin-replace'
-import { terser } from 'rollup-plugin-terser'
-import typescript from 'rollup-plugin-typescript2'
-import svelte from 'rollup-plugin-svelte'
+import babel from '@rollup/plugin-babel'
+import commonjs from '@rollup/plugin-commonjs'
 import config from 'sapper/config/rollup'
+import json from '@rollup/plugin-json'
+import resolve from '@rollup/plugin-node-resolve'
+import replace from '@rollup/plugin-replace'
+import svelte from 'rollup-plugin-svelte'
+import typescript from '@rollup/plugin-typescript'
+import { builtinModules } from 'module'
+import { terser } from 'rollup-plugin-terser'
 import { createEnv, preprocess, readConfigFile } from 'svelte-ts-preprocess'
 
 import pkg from './package.json'
@@ -26,13 +26,16 @@ const mode = process.env.NODE_ENV
 const dev = mode === 'development'
 const legacy = !!process.env.SAPPER_LEGACY_BUILD
 
-const onwarn = (warning, onwWarning) =>
-  (warning.code === 'CIRCULAR_DEPENDENCY' &&
-    /[/\\]@sapper[/\\]/.test(warning.message)) ||
-  onwWarning(warning)
+const warningIsIgnored = (warning) => warning.message.includes(
+  'Use of eval is strongly discouraged, as it poses security risks and may cause issues with minification',
+) || warning.message.includes('Circular dependency: node_modules')
 
-const dedupe = (importee) =>
-  importee === 'svelte' || importee.startsWith('svelte/')
+// Workaround for https://github.com/sveltejs/sapper/issues/1266
+const onwarn = (warning, _onwarn) => (warning.code === 'CIRCULAR_DEPENDENCY' && /[/\\]@sapper[/\\]/.test(warning.message))
+  || warningIsIgnored(warning)
+  || console.warn(warning.toString())
+
+const dedupe = (importee) => importee === 'svelte' || importee.startsWith('svelte/')
 
 export default {
   client: {
@@ -53,10 +56,11 @@ export default {
         browser: true,
         dedupe,
       }),
-      commonjs(),
+      commonjs,
       typescript(),
-      legacy &&
-        babel({
+      json(),
+      legacy
+        && babel({
           extensions: ['.js', '.mjs', '.html', '.svelte'],
           runtimeHelpers: true,
           exclude: ['node_modules/@babel/**'],
@@ -79,11 +83,12 @@ export default {
           ],
         }),
 
-      !dev &&
-        terser({
+      !dev
+        && terser({
           module: true,
         }),
     ],
+    preserveEntrySignatures: false,
 
     onwarn,
   },
@@ -128,15 +133,13 @@ export default {
       }),
     ],
     external: Object.keys(pkg.dependencies).concat(
-      builtinModules || Object.keys(process.binding('natives'))
+      builtinModules || Object.keys(process.binding('natives')),
     ),
-
     onwarn,
   },
 
   serviceworker: {
-    // .replace(/\.js$/, '.ts'), Haven't fixed the Typescript compiler errors for this file yet
-    input: config.serviceworker.input(),
+    input: config.serviceworker.input().replace(/\.js$/, '.ts'),
     output: config.serviceworker.output(),
     plugins: [
       resolve(),
@@ -149,6 +152,7 @@ export default {
       !dev && terser(),
     ],
 
+    preserveEntrySignatures: false,
     onwarn,
   },
 }

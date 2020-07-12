@@ -113,3 +113,15 @@ npm run update:pull
 # increase and install versions of packages
 npm run update:install
 ```
+
+## Recommended VS Code Extensions
+
+- [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker)
+- [Docker Compose](https://marketplace.visualstudio.com/items?itemName=p1c2u.docker-compose)
+- [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+- [npm](https://marketplace.visualstudio.com/items?itemName=eg2.vscode-npm-script)
+- [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+- [Svelte](https://marketplace.visualstudio.com/items?itemName=JamesBirtles.svelte-vscode)
+- [Svelte 3 Snippets](https://marketplace.visualstudio.com/items?itemName=fivethree.vscode-svelte-snippets)
+- [Svelte Intellisense](https://marketplace.visualstudio.com/items?itemName=ardenivanov.svelte-intellisense)
+- [TypeScript UML](https://marketplace.visualstudio.com/items?itemName=myxvisual.vscode-ts-uml)

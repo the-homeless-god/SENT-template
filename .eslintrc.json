@@ -40,16 +40,15 @@
       }
     ],
     "quotes": ["error", "single"],
-    "semi": [2, "never"]
+    "semi": [2, "never"],
+    "linebreak-style": 0,
+    "global-require": 0
   },
   "overrides": [
     {
       "files": ["*.ts"],
       "parser": "@typescript-eslint/parser",
-      "extends": [
-        "plugin:import/typescript",
-        "plugin:@typescript-eslint/recommended"
-      ],
+      "extends": ["plugin:import/typescript", "plugin:@typescript-eslint/recommended"],
       "plugins": ["@typescript-eslint"],
       "rules": {
         "@typescript-eslint/ban-ts-comment": "off"
