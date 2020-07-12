@@ -2,6 +2,7 @@
   "author": "Marat Zimnurov <zimit@mail.ru>",
   "homepage": "https://github.com/Zimtir/SENT-template",
   "dependencies": {
+    "cross-fetch": "^3.0.5",
     "node-crud-kit": "^1.4.0",
     "typescript": "^3.7.5"
   },
@@ -39,7 +40,7 @@
   "license": "MIT",
   "name": "sent-template",
   "scripts": {
-    "build": "sapper build --legacy",
+    "build": "sapper build",
     "cy:run": "cypress run",
     "cy:open": "cypress open",
     "dev": "sapper dev",
@@ -61,5 +62,5 @@
     "type": "git",
     "url": "https://github.com/Zimtir/SENT-template.git"
   },
-  "version": "0.0.7"
+  "version": "0.0.8"
 }

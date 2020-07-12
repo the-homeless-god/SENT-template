@@ -1,23 +1,23 @@
-<script context="module">
-  export function preload({ params, query }) {
-    return this.fetch(`blog.json`)
-      .then(r => r.json())
-      .then(posts => {
-        return { posts };
-      });
-  }
-</script>
-
-<script>
-  export let posts;
-</script>
-
 <style>
   ul {
     margin: 0 0 1em 0;
     line-height: 1.5;
   }
 </style>
+
+<script context="module">
+  export function preload({ params, query }) {
+    return this.fetch(`blog.json`)
+      .then((r) => r.json())
+      .then((posts) => {
+        return { posts }
+      })
+  }
+</script>
+
+<script>
+  export let posts
+</script>
 
 <svelte:head>
   <title>Blog</title>
