@@ -1,26 +1,6 @@
 {
-  "name": "sent-template",
-  "description": "Svelte Express Node Typescript",
-  "version": "0.0.6",
-  "scripts": {
-    "build": "sapper build --legacy",
-    "cy:run": "cypress run",
-    "cy:open": "cypress open",
-    "dev": "sapper dev",
-    "export": "sapper export --legacy",
-    "eslint": "eslint --cache --ext .js,.ts, src",
-    "eslint:dump": "eslint --print-config ./.eslintrc.json",
-    "eslint:fix": "eslint --fix ./*.js ./src/*.ts ./src/**/*.ts",
-    "format-and-fix": "npm run prettier && npm run eslint --fix",
-    "prettier": "npm run prettier:typescript && npm run prettier:javascript && npm run prettier:svelte",
-    "prettier:typescript": "prettier --write 'src/**/*.ts'",
-    "prettier:javascript": "prettier --write 'src/**/*.js'",
-    "prettier:svelte": "prettier --write 'src/**/*.ts'",
-    "start": "node __sapper__/build",
-    "test": "run-p --race dev cy:run",
-    "update:install": "npm update && npm install",
-    "update:pull": "npm outdated"
-  },
+  "author": "Marat Zimnurov <zimit@mail.ru>",
+  "homepage": "https://github.com/Zimtir/SENT-template",
   "dependencies": {
     "node-crud-kit": "^1.4.0",
     "typescript": "^3.7.5"
@@ -41,7 +21,6 @@
     "@typescript-eslint/eslint-plugin": "^3.5.0",
     "@typescript-eslint/parser": "^3.6.0",
     "eslint": "^7.4.0",
-    "eslint-config-airbnb": "^18.2.0",
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-import-resolver-typescript": "^2.0.0",
     "eslint-plugin-import": "^2.22.0",
@@ -55,5 +34,32 @@
     "sapper": "^0.27.0",
     "svelte": "^3.0.0",
     "svelte-ts-preprocess": "^1.1.3"
-  }
+  },
+  "description": "Svelte Express Node Typescript",
+  "license": "MIT",
+  "name": "sent-template",
+  "scripts": {
+    "build": "sapper build --legacy",
+    "cy:run": "cypress run",
+    "cy:open": "cypress open",
+    "dev": "sapper dev",
+    "export": "sapper export --legacy",
+    "eslint": "eslint --cache --ext .js,.ts, src",
+    "eslint:dump": "eslint --print-config ./.eslintrc.json",
+    "eslint:fix": "eslint --fix ./*.js ./src/*.ts ./src/**/*.ts",
+    "format-and-fix": "npm run prettier && npm run eslint --fix",
+    "prettier": "npm run prettier:typescript && npm run prettier:javascript && npm run prettier:svelte",
+    "prettier:typescript": "prettier --write 'src/**/*.ts'",
+    "prettier:javascript": "prettier --write 'src/**/*.js'",
+    "prettier:svelte": "prettier --write 'src/**/*.ts'",
+    "start": "node __sapper__/build",
+    "test": "run-p --race dev cy:run",
+    "update:install": "npm update && npm install",
+    "update:pull": "npm outdated"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Zimtir/SENT-template.git"
+  },
+  "version": "0.0.7"
 }
