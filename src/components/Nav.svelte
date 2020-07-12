@@ -1,15 +1,3 @@
-<script lang="typescript">
-  import { logger } from '../helpers/logger.helper'
-
-  export let segment: string = ''
-
-  const showSegment = (segment: string) => {
-    logger(segment)
-  }
-
-  showSegment(segment)
-</script>
-
 <style>
   nav {
     border-bottom: 1px solid rgba(255, 62, 0, 0.1);
@@ -59,19 +47,31 @@
   }
 </style>
 
+<script lang="typescript">
+  import { logger } from '../helpers/logger.helper'
+
+  export let segment: string = ''
+
+  const showSegment = (segment: string) => {
+    logger(segment)
+  }
+
+  showSegment(segment)
+</script>
+
 <nav>
   <ul>
     <li>
-      <a class:selected={segment === undefined} href=".">home</a>
+      <a class:selected="{segment === undefined}" href=".">home</a>
     </li>
     <li>
-      <a class:selected={segment === 'about'} href="about">about</a>
+      <a class:selected="{segment === 'about'}" href="about">about</a>
     </li>
 
     <!-- for the blog link, we're using rel=prefetch so that Sapper prefetches
 		     the blog data when we hover over the link or tap it on a touchscreen -->
     <li>
-      <a rel="prefetch" class:selected={segment === 'blog'} href="blog">blog</a>
+      <a rel="prefetch" class:selected="{segment === 'blog'}" href="blog">blog</a>
     </li>
   </ul>
 </nav>

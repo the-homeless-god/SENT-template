@@ -1,11 +1,11 @@
-import posts from './_posts.js'
+import posts from './_posts'
 
 const lookup = new Map()
 posts.forEach((post) => {
   lookup.set(post.slug, JSON.stringify(post))
 })
 
-export function get(req, res, next) {
+export function get(req, res, _next) {
   // the `slug` parameter is available because
   // this file is called [slug].json.js
   const { slug } = req.params
@@ -23,8 +23,8 @@ export function get(req, res, next) {
 
     res.end(
       JSON.stringify({
-        message: `Not found`,
-      })
+        message: 'Not found',
+      }),
     )
   }
 }
