@@ -86,6 +86,7 @@ const posts = [
 ]
 
 posts.forEach((post) => {
+  // eslint-disable-next-line no-param-reassign
   post.html = post.html.replace(/^\t{3}/gm, '')
 })
 
