@@ -1,30 +1,33 @@
-# ST-template
+# SENT-template
 
-https://github.com/Zimtir/ST-template
+https://github.com/Zimtir/SENT-template
 
-## Svelte.js, Typescript and other template
+## Sapper.js, Express.js, Node.js, Typescript and other template
 
-![GitHub package.json version](https://img.shields.io/github/package-json/v/Zimtir/ST-template)
+![GitHub package.json version](https://img.shields.io/github/package-json/v/Zimtir/SENT-template)
 
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 [![code formatting: eslint](https://img.shields.io/badge/code%20linter-eslint-brightgreen?style=flat-square)](https://github.com/eslint/eslint)
 
-![GitHub Build Action](https://github.com/Zimtir/SENT-template/workflows/build%20and%20publish/badge.svg)
-![Docker Image Size (tag)](https://img.shields.io/docker/image-size/9e3u2f0b1/ST-template/latest?logo=Docker)
-![Docker Stars](https://img.shields.io/docker/stars/9e3u2f0b1/ST-template?logo=Docker)
+![build and publish](https://github.com/Zimtir/SENT-template/workflows/build%20and%20publish/badge.svg)
+![Docker Image Size (tag)](https://img.shields.io/docker/image-size/9e3u2f0b1/sent-template/latest?logo=Docker)
+![Docker Stars](https://img.shields.io/docker/stars/9e3u2f0b1/sent-template?logo=Docker)
 
-![GitHub package.json dependency version (dev dep on branch)](https://img.shields.io/github/package-json/dependency-version/Zimtir/ST-template/dev/rollup?color=green&logo=Rollup)
-![GitHub package.json dependency version (dev dep on branch)](https://img.shields.io/github/package-json/dependency-version/Zimtir/ST-template/dev/sapper?color=green)
-![GitHub package.json dependency version (dev dep on branch)](https://img.shields.io/github/package-json/dependency-version/Zimtir/ST-template/dev/svelte?color=green)
-![GitHub package.json dependency version (dev dep on branch)](https://img.shields.io/github/package-json/dependency-version/Zimtir/ST-template/dev/eslint?color=green)
-![GitHub package.json dependency version (dev dep on branch)](https://img.shields.io/github/package-json/dependency-version/Zimtir/ST-template/dev/prettier?color=green)
-![GitHub package.json dependency version (prod)](https://img.shields.io/github/package-json/dependency-version/Zimtir/ST-template/typescript?color=green)
+![GitHub package.json dependency version (dev dep on branch)](https://img.shields.io/github/package-json/dependency-version/Zimtir/sent-template/dev/rollup?color=green&logo=Rollup)
+![GitHub package.json dependency version (dev dep on branch)](https://img.shields.io/github/package-json/dependency-version/Zimtir/sent-template/dev/sapper?color=green)
+![GitHub package.json dependency version (dev dep on branch)](https://img.shields.io/github/package-json/dependency-version/Zimtir/sent-template/dev/svelte?color=green)
+![GitHub package.json dependency version (dev dep on branch)](https://img.shields.io/github/package-json/dependency-version/Zimtir/sent-template/dev/eslint?color=green)
+![GitHub package.json dependency version (dev dep on branch)](https://img.shields.io/github/package-json/dependency-version/Zimtir/sent-template/dev/prettier?color=green)
+![GitHub package.json dependency version (prod)](https://img.shields.io/github/package-json/dependency-version/Zimtir/sent-template/typescript?color=green)
 
 ## List of features:
 
 - [ESLint](https://eslint.org/)
+- [Express.js](https://www.npmjs.com/package/express)
+- [Node.js](https://nodejs.org/en/)
 - [Prettier](https://prettier.io/)
 - [Svelte.js](https://svelte.dev/)
+- [Sapper.js](https://sapper.svelte.dev/)
 - [TypeScript](https://www.typescriptlang.org/)
 - [Docker](https://www.docker.com/)
 - [Docker Compose](https://docs.docker.com/compose/)
@@ -35,7 +38,7 @@ https://github.com/Zimtir/ST-template
 
 ```shell
 # for Rollup
-npx degit "Zimtir/ST-template" my-app
+npx degit "Zimtir/SENT-template" my-app
 ```
 
 ### Running the project without Docker
@@ -48,9 +51,9 @@ npm install # or yarn
 npm run dev
 ```
 
-Open up [localhost:5000](http://localhost:5000) and start clicking around.
+Open up [localhost:3000](http://localhost:3000) and start clicking around.
 
-Consult [svelte.dev](https://svelte.dev) for help getting started.
+Consult [sapper.svelte.dev](https://sapper.svelte.dev) for help getting started.
 
 ### Running the project with Docker & Docker Compose
 
@@ -58,7 +61,7 @@ Consult [svelte.dev](https://svelte.dev) for help getting started.
 docker-compose up
 ```
 
-Open up [localhost:5000](http://localhost:5000) and start clicking around.
+Open up [localhost:3000](http://localhost:3000) and start clicking around.
 
 #### Docker scripts
 
