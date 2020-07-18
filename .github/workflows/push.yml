@@ -2,8 +2,8 @@ on:
     push:
       branches:
         - master
-  name: npm build, lint, test and publish
-  jobs:
+    name: build and publish
+    jobs:
     build-and-publish:
       name: build and publish
       runs-on: ubuntu-latest

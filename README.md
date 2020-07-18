@@ -9,6 +9,7 @@ https://github.com/Zimtir/ST-template
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 [![code formatting: eslint](https://img.shields.io/badge/code%20linter-eslint-brightgreen?style=flat-square)](https://github.com/eslint/eslint)
 
+![GitHub Build Action](https://github.com/Zimtir/SENT-template/workflows/build%20and%20publish/badge.svg)
 ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/9e3u2f0b1/ST-template/latest?logo=Docker)
 ![Docker Stars](https://img.shields.io/docker/stars/9e3u2f0b1/ST-template?logo=Docker)
 
@@ -28,6 +29,7 @@ https://github.com/Zimtir/ST-template
 - [Docker](https://www.docker.com/)
 - [Docker Compose](https://docs.docker.com/compose/)
 - [SASS](https://sass-lang.com/documentation)
+- [GitHub Actions](https://docs.github.com/en/actions)
 
 ## Usage
 
