@@ -4,6 +4,7 @@ import config from 'sapper/config/rollup'
 import json from '@rollup/plugin-json'
 import resolve from '@rollup/plugin-node-resolve'
 import replace from '@rollup/plugin-replace'
+import scss from 'rollup-plugin-scss'
 import svelte from 'rollup-plugin-svelte'
 import typescript from '@rollup/plugin-typescript'
 import { builtinModules } from 'module'
@@ -26,16 +27,19 @@ const mode = process.env.NODE_ENV
 const dev = mode === 'development'
 const legacy = !!process.env.SAPPER_LEGACY_BUILD
 
-const warningIsIgnored = (warning) => warning.message.includes(
-  'Use of eval is strongly discouraged, as it poses security risks and may cause issues with minification',
-) || warning.message.includes('Circular dependency: node_modules')
+const warningIsIgnored = (warning) =>
+  warning.message.includes(
+    'Use of eval is strongly discouraged, as it poses security risks and may cause issues with minification',
+  ) || warning.message.includes('Circular dependency: node_modules')
 
 // Workaround for https://github.com/sveltejs/sapper/issues/1266
-const onwarn = (warning, _onwarn) => (warning.code === 'CIRCULAR_DEPENDENCY' && /[/\\]@sapper[/\\]/.test(warning.message))
-  || warningIsIgnored(warning)
-  || console.warn(warning.toString())
+const onwarn = (warning, _onwarn) =>
+  (warning.code === 'CIRCULAR_DEPENDENCY' && /[/\\]@sapper[/\\]/.test(warning.message)) ||
+  warningIsIgnored(warning) ||
+  console.warn(warning.toString())
 
 const dedupe = (importee) => importee === 'svelte' || importee.startsWith('svelte/')
+const extensions = ['.js', '.mjs', '.html', '.svelte', '.ts']
 
 export default {
   client: {
@@ -46,6 +50,9 @@ export default {
         'process.browser': true,
         'process.env.NODE_ENV': JSON.stringify(mode),
       }),
+      scss({
+        output: 'public/assets/css/client.css',
+      }),
       svelte({
         dev,
         hydratable: true,
@@ -54,14 +61,16 @@ export default {
       }),
       resolve({
         browser: true,
+        jsnext: true,
+        extensions,
         dedupe,
       }),
       commonjs,
       typescript(),
       json(),
-      legacy
-        && babel({
-          extensions: ['.js', '.mjs', '.html', '.svelte'],
+      legacy &&
+        babel({
+          extensions,
           babelHelpers: 'runtime',
           exclude: ['node_modules/@babel/**', 'src/node_modules/'],
           presets: [
@@ -83,8 +92,8 @@ export default {
           ],
         }),
 
-      !dev
-        && terser({
+      !dev &&
+        terser({
           module: true,
         }),
     ],
@@ -100,6 +109,9 @@ export default {
       replace({
         'process.browser': false,
         'process.env.NODE_ENV': JSON.stringify(mode),
+      }),
+      scss({
+        output: 'public/assets/css/server.css',
       }),
       svelte({
         generate: 'ssr',

@@ -6,6 +6,8 @@ yarn-error.log
 /__sapper__/
 public/assets/css/f*.css
 public/assets/css/animation.css
+public/assets/css/server.css
+public/assets/css/client.css
 public/assets/font/
 .env
 .eslintcache

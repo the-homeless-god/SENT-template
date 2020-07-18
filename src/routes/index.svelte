@@ -1,7 +1,3 @@
-<script>
-  console.log('Started:', new Date())
-</script>
-
 <style>
   h1,
   figure,
@@ -38,11 +34,19 @@
   }
 </style>
 
+<script>
+  import './index.scss'
+
+  console.log('Started:', new Date())
+</script>
+
 <svelte:head>
   <title>Sapper project template</title>
 </svelte:head>
 
-<h1>Great success!</h1>
+<div class="container">
+  <h1 class="container-header">Great success!</h1>
+</div>
 
 <figure>
   <img alt="Borat" src="assets/img/great-success.png" />
@@ -50,7 +54,5 @@
 </figure>
 
 <p>
-  <strong>
-    Try editing this file (src/routes/index.svelte) to test live reloading.
-  </strong>
+  <strong>Try editing this file (src/routes/index.svelte) to test live reloading.</strong>
 </p>
