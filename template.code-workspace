@@ -1,0 +1,66 @@
+{
+  "folders": [
+    {
+      "name": "assets",
+      "path": "public/assets"
+    },
+    {
+      "name": "components",
+      "path": "src/components"
+    },
+    {
+      "name": "helpers",
+      "path": "src/helpers"
+    },
+    {
+      "name": "routes",
+      "path": "src/routes"
+    },
+    {
+      "name": "root",
+      "path": "."
+    },
+    {
+      "name": "types",
+      "path": "typings"
+    }
+  ],
+  "settings": {
+    // Size of editor
+    "window.zoomLevel": 0,
+    // Format code after save
+    "editor.formatOnSave": false
+  },
+  "extensions": {
+    "recommendations": [
+      // Docker
+      "ms-azuretools.vscode-docker",
+      // Docker Compose
+      "p1c2u.docker-compose",
+      // ESLint
+      "dbaeumer.vscode-eslint",
+      // npm
+      "eg2.vscode-npm-script",
+      // Prettier
+      "esbenp.prettier-vscode",
+      // SCSS Formatter
+      "sibiraj-s.vscode-scss-formatter",
+      // SCSS IntelliSense
+      "mrmlnc.vscode-scss",
+      // Svelte
+      "JamesBirtles.svelte-vscode",
+      // Svelte Auto import
+      "pivaszbs.svelte-autoimport",
+      // Svelte 3 Snippets
+      "fivethree.vscode-svelte-snippets",
+      // Svelte Intellisense
+      "ardenivanov.svelte-intellisense",
+      // Svelte for VS Code
+      "svelte.svelte-vscode",
+      // Svelte Type Checker
+      "halfnelson.svelte-type-checker-vscode",
+      // TypeScript UML
+      "myxvisual.vscode-ts-uml"
+    ]
+  }
+}
