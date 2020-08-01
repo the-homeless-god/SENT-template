@@ -23,6 +23,7 @@ https://github.com/Zimtir/SENT-template
 ## List of features:
 
 - [Commitlint](https://github.com/conventional-changelog/commitlint)
+- [Develop in container](https://code.visualstudio.com/docs/remote/containers)
 - [Docker](https://www.docker.com/)
 - [Docker Compose](https://docs.docker.com/compose/)
 - [EditorConfig](https://editorconfig.org/)
