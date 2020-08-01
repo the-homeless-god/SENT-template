@@ -47,7 +47,7 @@
   }
 </style>
 
-<script lang="typescript">
+<script lang="ts">
   import { logger } from '../helpers/logger.helper'
 
   export let segment: string = ''
