@@ -45,9 +45,23 @@
   "homepage": "https://github.com/Zimtir/SENT-template",
   "license": "MIT",
   "lint-staged": {
-    "*.{js, ts, svelte, json}": [
-      "npm run format-and-fix"
+    "src/**/*.{js,ts,svelte,json}": [
+      "npm run format-and-fix",
+      "git add"
+    ],
+    "src/**/*.scss": [
+      "npm run stylelint:scss:fix",
+      "git add"
+    ],
+    "src/**/*.css": [
+      "npm run stylelint:css:fix",
+      "git add"
     ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
   "name": "sent-template",
   "scripts": {
@@ -67,6 +81,12 @@
     "prettier:root:js": "prettier --write ./*.js",
     "prettier:root:json": "prettier --write ./*.json",
     "start": "node __sapper__/build",
+    "stylelint": "npm run stylelint:css && npm run stylelint:scss",
+    "stylelint:fix": "npm run stylelint:css:fix && npm run stylelint:scss:fix",
+    "stylelint:css": "stylelint src/**/*.css --syntax css --allow-empty-input",
+    "stylelint:scss": "stylelint src/**/*.scss --syntax scss --allow-empty-input",
+    "stylelint:css:fix": "npm run stylelint:css --fix",
+    "stylelint:scss:fix": "npm run stylelint:scss --fix",
     "svelte:check": "svelte-check",
     "test": "run-p --race dev cy:run",
     "update:install": "npm update && npm install",
