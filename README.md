@@ -25,6 +25,7 @@ https://github.com/Zimtir/SENT-template
 - [Commitlint](https://github.com/conventional-changelog/commitlint)
 - [Docker](https://www.docker.com/)
 - [Docker Compose](https://docs.docker.com/compose/)
+- [EditorConfig](https://editorconfig.org/)
 - [ESLint](https://eslint.org/)
 - [Express.js](https://www.npmjs.com/package/express)
 - [GitHub Actions](https://docs.github.com/en/actions)
