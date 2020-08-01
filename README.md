@@ -140,3 +140,8 @@ npm run update:install
 - [Svelte for VS Code](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode)
 - [Svelte Type Checker](https://marketplace.visualstudio.com/items?itemName=halfnelson.svelte-type-checker-vscode)
 - [TypeScript UML](https://marketplace.visualstudio.com/items?itemName=myxvisual.vscode-ts-uml)
+
+## Recommended Environment
+
+- [Node.js v12.18.3](https://nodejs.org/en/download/)
+- [Visual Studio Code](https://code.visualstudio.com/)
