@@ -18,7 +18,7 @@ https://github.com/Zimtir/SENT-template
 ![GitHub package.json dependency version (dev dep on branch)](https://img.shields.io/github/package-json/dependency-version/Zimtir/sent-template/dev/svelte?color=green)
 ![GitHub package.json dependency version (dev dep on branch)](https://img.shields.io/github/package-json/dependency-version/Zimtir/sent-template/dev/eslint?color=green)
 ![GitHub package.json dependency version (dev dep on branch)](https://img.shields.io/github/package-json/dependency-version/Zimtir/sent-template/dev/prettier?color=green)
-![GitHub package.json dependency version (prod)](https://img.shields.io/github/package-json/dependency-version/Zimtir/sent-template/typescript?color=green)
+![GitHub package.json dependency version (dev dep on branch)](https://img.shields.io/github/package-json/dependency-version/Zimtir/sent-template/dev/typescript?color=green)
 
 ## List of features:
 
