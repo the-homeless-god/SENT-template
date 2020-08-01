@@ -10,6 +10,8 @@
     "@babel/plugin-transform-runtime": "^7.10.5",
     "@babel/preset-env": "^7.11.0",
     "@babel/runtime": "^7.10.5",
+    "@commitlint/cli": "^9.1.1",
+    "@commitlint/config-conventional": "^9.1.1",
     "@rollup/plugin-babel": "^5.1.0",
     "@rollup/plugin-commonjs": "~11.0.2",
     "@rollup/plugin-json": "^4.0.2",
@@ -36,6 +38,8 @@
     "rollup-plugin-svelte": "^5.0.1",
     "rollup-plugin-terser": "^5.3.0",
     "sapper": "^0.27.0",
+    "stylelint": "^13.6.1",
+    "stylelint-config-standard": "^20.0.0",
     "svelte": "^3.24.0",
     "svelte-check": "^0.1.58",
     "svelte-preprocess": "^4.0.8",
@@ -45,9 +49,12 @@
   "homepage": "https://github.com/Zimtir/SENT-template",
   "license": "MIT",
   "lint-staged": {
-    "src/**/*.{js,ts,svelte,json}": [
+    "src/**/*.(js|ts|json)": [
       "npm run format-and-fix",
       "git add"
+    ],
+    "src/**/*.(svelte)": [
+      "npm run svelte:check"
     ],
     "src/**/*.scss": [
       "npm run stylelint:scss:fix",
@@ -56,11 +63,14 @@
     "src/**/*.css": [
       "npm run stylelint:css:fix",
       "git add"
-    ]
+    ],
+    "*.js": "eslint --cache --fix",
+    "*.{js,css,md}": "prettier --write"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
   "name": "sent-template",
@@ -75,7 +85,6 @@
     "eslint:dump": "eslint --print-config ./.eslintrc.json",
     "eslint:fix": "eslint --fix ./*.js ./src/*.ts ./src/**/*.ts --max-warnings=0",
     "format-and-fix": "npm run prettier && npm run eslint --fix",
-    "precommit": "lint-staged",
     "prettier": "prettier --write ./src/**",
     "prettier:root": "npm run prettier:root:json && npm run prettier:root:js",
     "prettier:root:js": "prettier --write ./*.js",
