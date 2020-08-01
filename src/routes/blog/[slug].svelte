@@ -37,7 +37,7 @@
 <script context="module">
   import 'cross-fetch/polyfill'
 
-  export const preload = async ({ params, query }) => {
+  export const preload = async ({ params }) => {
     // the `slug` parameter is available because
     // this file is called [slug].svelte
     const res = await fetch(`http://localhost:3000/blog/${params.slug}.json`)

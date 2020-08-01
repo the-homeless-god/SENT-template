@@ -6,7 +6,7 @@
 </style>
 
 <script context="module">
-  export function preload({ params, query }) {
+  export function preload() {
     return this.fetch(`blog.json`)
       .then((r) => r.json())
       .then((posts) => {
