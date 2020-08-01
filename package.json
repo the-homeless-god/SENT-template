@@ -84,6 +84,7 @@
     "eslint": "eslint --cache --ext .js,.ts, src",
     "eslint:dump": "eslint --print-config ./.eslintrc.json",
     "eslint:fix": "eslint --fix ./*.js ./src/*.ts ./src/**/*.ts --max-warnings=0",
+    "fix": "npm run prettier && npm run eslint:fix && npm run stylelint:fix && npm run svelte:check",
     "format-and-fix": "npm run prettier && npm run eslint --fix",
     "prettier": "prettier --write ./src/**",
     "prettier:root": "npm run prettier:root:json && npm run prettier:root:js",
@@ -105,5 +106,5 @@
     "type": "git",
     "url": "https://github.com/Zimtir/SENT-template.git"
   },
-  "version": "0.1.0"
+  "version": "0.1.1"
 }

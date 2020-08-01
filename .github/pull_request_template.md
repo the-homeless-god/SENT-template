@@ -1,3 +1,5 @@
+## Version:
+
 ## Description:
 
 ## TODO:
@@ -7,7 +9,6 @@
 - [ ] Labels
 - [ ] Issues
 - [ ] No pre-commit errors
-- [ ] Version
 
 ## The following list of issues will be closed:
 

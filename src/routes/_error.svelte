@@ -1,6 +1,6 @@
-<script>
-  export let status
-  export let error
+<script lang="ts">
+  export let status: string
+  export let error: Error
 
   import './error.scss'
 
