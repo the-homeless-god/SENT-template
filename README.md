@@ -22,17 +22,23 @@ https://github.com/Zimtir/SENT-template
 
 ## List of features:
 
+- [Commitlint](https://github.com/conventional-changelog/commitlint)
+- [Develop in container](https://code.visualstudio.com/docs/remote/containers)
+- [Docker](https://www.docker.com/)
+- [Docker Compose](https://docs.docker.com/compose/)
+- [EditorConfig](https://editorconfig.org/)
 - [ESLint](https://eslint.org/)
 - [Express.js](https://www.npmjs.com/package/express)
+- [GitHub Actions](https://docs.github.com/en/actions)
+- [Husky](https://github.com/typicode/husky)
+- [Lint staged](https://github.com/okonet/lint-staged)
 - [Node.js](https://nodejs.org/en/)
 - [Prettier](https://prettier.io/)
 - [Svelte.js](https://svelte.dev/)
 - [Sapper.js](https://sapper.svelte.dev/)
-- [TypeScript](https://www.typescriptlang.org/)
-- [Docker](https://www.docker.com/)
-- [Docker Compose](https://docs.docker.com/compose/)
+- [Typescript](https://www.typescriptlang.org/)
 - [SASS](https://sass-lang.com/documentation)
-- [GitHub Actions](https://docs.github.com/en/actions)
+- [Stylelint](https://github.com/stylelint/stylelint)
 
 ## Usage
 

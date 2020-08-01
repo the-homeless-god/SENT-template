@@ -12,6 +12,8 @@ jobs:
       - uses: actions/setup-node@v1
       - run: npm install
       - run: npm run eslint
+      - run: npm run stylelint
+      - run: npm run svelte:check
       - run: npm run build
       - name: docker build and push
         uses: docker/build-push-action@v1
