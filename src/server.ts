@@ -1,7 +1,7 @@
 import LoggerTool from 'node-crud-kit/lib/tools/logger.tool'
 import ServerTool from 'node-crud-kit/lib/tools/server.tool'
 
-import * as sapper from '@sapper/server'
+import * as sapper from '@sapper/server' 
 
 const express = ServerTool.initExpress({
   bodyParser: true,
