@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  &-header {
+    font-size: 42px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+h1 {
+  text-align: center;
+  font-size: 2.8em;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin: 0 0 0.5em 0;
+}
+
+@media (min-width: 480px) {
+  h1 {
+    font-size: 4em;
+  }
+}

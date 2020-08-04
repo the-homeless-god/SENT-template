@@ -2,6 +2,23 @@
   ul {
     margin: 0 0 1em 0;
     line-height: 1.5;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  li {
+    display: block;
+    float: left;
+    width: 100%;
+  }
+
+  /* clearfix */
+
+  ul::after {
+    content: '';
+    clear: both;
   }
 </style>
 
