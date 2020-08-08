@@ -6,4 +6,4 @@
   import './Title.scss'
 </script>
 
-<TextContent {text} strong />
+<TextContent center strong {text} />
