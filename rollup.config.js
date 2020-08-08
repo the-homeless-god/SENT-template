@@ -58,6 +58,7 @@ export default {
       }),
       scss({
         output: 'public/assets/css/client.css',
+        sourceMap: 'public/assets/css/client.css.map',
       }),
       svelte({
         dev,
@@ -71,7 +72,9 @@ export default {
         extensions,
         dedupe,
       }),
-      commonjs,
+      commonjs({
+        include: /node_modules/,
+      }),
       typescript({ sourceMap: true }),
       json(),
       legacy
@@ -95,6 +98,7 @@ export default {
       }),
       scss({
         output: 'public/assets/css/server.css',
+        sourceMap: 'public/assets/css/server.css.map',
       }),
       svelte({
         generate: 'ssr',
@@ -104,7 +108,9 @@ export default {
       resolve({
         dedupe,
       }),
-      commonjs(),
+      commonjs({
+        include: /node_modules/,
+      }),
       typescript(),
       json({
         // All JSON files will be parsed by default,
