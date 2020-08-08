@@ -1,6 +1,6 @@
-import type ITab from '../interfaces/tab.interface'
+import type { Tab } from '../types'
 
-export const tabs: ITab[] = [
+export const tabs: Tab[] = [
   {
     segment: undefined,
     href: '.',
