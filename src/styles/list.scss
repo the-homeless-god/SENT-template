@@ -1,0 +1,12 @@
+ul {
+  line-height: 1.5;
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 30px;
+
+  li {
+    display: list-item;
+    margin: 0 0 0.5em 0;
+    width: 100%;
+  }
+}

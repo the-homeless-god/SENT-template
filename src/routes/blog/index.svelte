@@ -1,38 +1,20 @@
-<style>
-  ul {
-    margin: 0 0 1em 0;
-    line-height: 1.5;
-  }
-</style>
+<script lang="ts">
+  import type { Post } from '../../types'
 
-<script context="module">
-  export function preload() {
-    return this.fetch(`blog.json`)
-      .then((r) => r.json())
-      .then((posts) => {
-        return { posts }
-      })
-  }
+  import Request from '../../classes/request'
+
+  import AsyncContent from '../../components/content/AsyncContent.svelte'
+  import GlobalHeader from '../../components/header/GlobalHeader.svelte'
+  import Header from '../../components/header/Header.svelte'
+  import ListContent from '../../components/content/ListContent.svelte'
+
+  const getPosts = async (): Promise<Post[]> => await Request.get<Post[]>(`/blog.json`)
 </script>
 
-<script>
-  export let posts
-</script>
+<GlobalHeader title="blog" />
 
-<svelte:head>
-  <title>Blog</title>
-</svelte:head>
+<Header title="Recent posts" />
 
-<h1>Recent posts</h1>
-
-<ul>
-  {#each posts as post}
-    <!-- we're using the non-standard `rel=prefetch` attribute to
-				tell Sapper to load the data for the page as soon as
-				the user hovers over the link or taps it, instead of
-				waiting for the 'click' event -->
-    <li>
-      <a rel="prefetch" href="blog/{post.slug}">{post.title}</a>
-    </li>
-  {/each}
-</ul>
+<AsyncContent let:items action="{getPosts}">
+  <ListContent attributeHref="slug" {items} />
+</AsyncContent>
