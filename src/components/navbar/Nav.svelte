@@ -1,13 +1,13 @@
 <script lang="ts">
-  import NavLink from './NavLink.svelte'
+  export let segment: string = ''
+  export let tabs: Tab[] = []
 
-  import type ITab from '../../interfaces/tab.interface'
+  import type { Tab } from '../../types'
   import { showSegment } from './Nav.utils'
 
-  import './Nav.scss'
+  import NavLink from './NavLink.svelte'
 
-  export let segment: string = ''
-  export let tabs: ITab[] = []
+  import './Nav.scss'
 
   showSegment(segment)
 </script>

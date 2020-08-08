@@ -6,8 +6,6 @@
 
   import { loggerWithDate } from '../helpers/logger.helper'
 
-  import './index.scss'
-
   loggerWithDate('Started:')
 </script>
 

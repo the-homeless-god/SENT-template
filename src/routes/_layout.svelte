@@ -1,11 +1,11 @@
 <script lang="ts">
-  import Nav from '../components/navbar/Nav.svelte'
+  export let segment: string
 
   import { tabs } from '../helpers/tab.helper'
 
-  import './layout.scss'
+  import Nav from '../components/navbar/Nav.svelte'
 
-  export let segment: string
+  import '../styles/layout.scss'
 </script>
 
 <Nav {segment} {tabs} />

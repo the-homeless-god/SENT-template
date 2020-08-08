@@ -1,66 +1,34 @@
-<style>
-  /*
-		By default, CSS is locally scoped to the component,
-		and any unused styles are dead-code-eliminated.
-		In this page, Svelte can't know which elements are
-		going to appear inside the {{{post.html}}} block,
-		so we have to use the :global(...) modifier to target
-		all elements inside .content
-	*/
-  .content :global(h2) {
-    font-size: 1.4em;
-    font-weight: 500;
-  }
+<script context="module" lang="ts">
+  import Request from '../../classes/request'
+  import { loggerWithDate } from '../../helpers/logger.helper'
 
-  .content :global(pre) {
-    background-color: #f9f9f9;
-    box-shadow: inset 1px 1px 5px rgba(0, 0, 0, 0.05);
-    padding: 0.5em;
-    border-radius: 2px;
-    overflow-x: auto;
-  }
+  import Content from '../../components/content/Content.svelte'
+  import GlobalHeader from '../../components/header/GlobalHeader.svelte'
+  import Header from '../../components/header/Header.svelte'
 
-  .content :global(pre) :global(code) {
-    background-color: transparent;
-    padding: 0;
-  }
-
-  .content :global(ul) {
-    line-height: 1.5;
-  }
-
-  .content :global(li) {
-    margin: 0 0 0.5em 0;
-  }
-</style>
-
-<script context="module">
-  import 'cross-fetch/polyfill'
-
-  export const preload = async ({ params }) => {
+  export async function preload({ params }) {
     // the `slug` parameter is available because
     // this file is called [slug].svelte
-    const res = await fetch(`http://localhost:3000/blog/${params.slug}.json`)
-    const data = await res.json()
+    try {
+      const post = await Request.get<Post>(`/blog/${params.slug}.json`)
 
-    if (res.status === 200) {
-      return { post: data }
-    } else {
-      console.log(res.status, data.message)
+      return { post }
+    } catch (err) {
+      loggerWithDate(err)
     }
   }
 </script>
 
-<script>
-  export let post
+<script lang="ts">
+  import type { Post } from '../../types'
+
+  export let post: Post
 </script>
 
-<svelte:head>
-  <title>{post.title}</title>
-</svelte:head>
+{#if post}
+  <GlobalHeader title="{post.title}" />
 
-<h1>{post.title}</h1>
+  <Header title="{post.title}" />
 
-<div class="content">
-  {@html post.html}
-</div>
+  <Content html="{post.html}" />
+{:else}...{/if}

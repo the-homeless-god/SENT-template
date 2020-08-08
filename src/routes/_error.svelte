@@ -2,19 +2,15 @@
   export let status: string
   export let error: Error
 
-  import './error.scss'
+  import ErrorContent from '../components/content/ErrorContent.svelte'
+  import GlobalHeader from '../components/header/GlobalHeader.svelte'
+  import Header from '../components/header/Header.svelte'
 
-  const dev = process.env.NODE_ENV === 'development'
+  import '../styles/error.scss'
 </script>
 
-<svelte:head>
-  <title>{status}</title>
-</svelte:head>
+<GlobalHeader title="{status}" />
 
-<h1>{status}</h1>
+<Header title="{status}" />
 
-<p>{error.message}</p>
-
-{#if dev && error.stack}
-  <pre>{error.stack}</pre>
-{/if}
+<ErrorContent {error} />

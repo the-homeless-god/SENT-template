@@ -1,9 +1,9 @@
 <script lang="ts">
   export let text: string
 
+  import TextContent from '../content/TextContent.svelte'
+
   import './Title.scss'
 </script>
 
-<p>
-  <strong>{text}</strong>
-</p>
+<TextContent {text} strong />

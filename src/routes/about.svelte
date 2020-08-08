@@ -1,7 +1,11 @@
-<svelte:head>
-  <title>About</title>
-</svelte:head>
+<script lang="ts">
+  import GlobalHeader from '../components/header/GlobalHeader.svelte'
+  import Header from '../components/header/Header.svelte'
+  import TextContent from '../components/content/TextContent.svelte'
+</script>
 
-<h1>About this site</h1>
+<GlobalHeader title="About" />
 
-<p>This is the 'about' page. There's not much here.</p>
+<Header title="About this site" />
+
+<TextContent text="{"This is the 'about' page. There's not much here."}" />
