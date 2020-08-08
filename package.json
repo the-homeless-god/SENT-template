@@ -45,8 +45,25 @@
     "svelte-preprocess": "^4.0.10",
     "typescript": "^3.9.7"
   },
-  "description": "Svelte Express Node Typescript",
+  "description": "Svelte Express Node Template",
   "homepage": "https://github.com/Zimtir/SENT-template",
+  "keywords": [
+    "actions",
+    "commitlint",
+    "cypress",
+    "docker",
+    "docker-compose",
+    "eslint",
+    "express",
+    "husky",
+    "node",
+    "sapper",
+    "scss",
+    "stylelint",
+    "svelte",
+    "prettier",
+    "typescript"
+  ],
   "license": "MIT",
   "lint-staged": {
     "src/**/*.(js|ts|json)": [
@@ -106,5 +123,5 @@
     "type": "git",
     "url": "https://github.com/Zimtir/SENT-template.git"
   },
-  "version": "0.1.5"
+  "version": "0.1.6"
 }

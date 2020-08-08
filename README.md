@@ -2,7 +2,9 @@
 
 https://github.com/Zimtir/SENT-template
 
-## Sapper.js, Express.js, Node.js, Typescript and other template
+## Sapper Express Node Template
+
+![Logo](https://github.com/Zimtir/SENT-template/blob/master/public/assets/img/logo.png?raw=true)
 
 ![GitHub package.json version](https://img.shields.io/github/package-json/v/Zimtir/SENT-template)
 
@@ -34,11 +36,11 @@ https://github.com/Zimtir/SENT-template
 - [Lint staged](https://github.com/okonet/lint-staged)
 - [Node.js](https://nodejs.org/en/)
 - [Prettier](https://prettier.io/)
-- [Svelte.js](https://svelte.dev/)
-- [Sapper.js](https://sapper.svelte.dev/)
-- [Typescript](https://www.typescriptlang.org/)
 - [SASS](https://sass-lang.com/documentation)
+- [Sapper.js](https://sapper.svelte.dev/)
+- [Svelte.js](https://svelte.dev/)
 - [Stylelint](https://github.com/stylelint/stylelint)
+- [Typescript](https://www.typescriptlang.org/)
 
 ## Usage
 
@@ -143,5 +145,6 @@ npm run update:install
 
 ## Recommended Environment
 
-- [Node.js v12.18.3](https://nodejs.org/en/download/)
-- [Visual Studio Code](https://code.visualstudio.com/)
+- [Docker](https://www.docker.com)
+- [Node.js v12.18.3](https://nodejs.org)
+- [Visual Studio Code](https://code.visualstudio.com)

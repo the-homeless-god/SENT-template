@@ -11,7 +11,7 @@
   const getPosts = async (): Promise<Post[]> => await Request.get<Post[]>(`/blog.json`)
 </script>
 
-<GlobalHeader title="blog" />
+<GlobalHeader title="Blog" />
 
 <Header title="Recent posts" />
 
