@@ -21,6 +21,7 @@ https://github.com/Zimtir/SENT-template
 ![GitHub package.json dependency version (dev dep on branch)](https://img.shields.io/github/package-json/dependency-version/Zimtir/sent-template/dev/eslint?color=green)
 ![GitHub package.json dependency version (dev dep on branch)](https://img.shields.io/github/package-json/dependency-version/Zimtir/sent-template/dev/prettier?color=green)
 ![GitHub package.json dependency version (dev dep on branch)](https://img.shields.io/github/package-json/dependency-version/Zimtir/sent-template/dev/typescript?color=green)
+![GitHub package.json dependency version (dev dep on branch)](https://img.shields.io/github/package-json/dependency-version/Zimtir/sent-template/dev/@storybook/svelte?color=green)
 
 ## List of features:
 
@@ -38,8 +39,9 @@ https://github.com/Zimtir/SENT-template
 - [Prettier](https://prettier.io/)
 - [SASS](https://sass-lang.com/documentation)
 - [Sapper.js](https://sapper.svelte.dev/)
-- [Svelte.js](https://svelte.dev/)
+- [Storybook](https://storybook.js.org/)
 - [Stylelint](https://github.com/stylelint/stylelint)
+- [Svelte.js](https://svelte.dev/)
 - [Typescript](https://www.typescriptlang.org/)
 
 ## Usage
@@ -114,6 +116,13 @@ npm run eslint:dump
 
 # fix code by ESLint
 npm run eslint:fix
+```
+
+## Storybook usage
+
+```shell
+# run the storybook
+npm run storybook
 ```
 
 ## Update packages
