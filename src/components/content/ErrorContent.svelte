@@ -1,4 +1,4 @@
-<script lang="ts">
+<script>
   export let error: Error
 
   import SlotContent from './SlotContent.svelte'

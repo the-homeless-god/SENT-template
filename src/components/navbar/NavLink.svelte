@@ -1,4 +1,4 @@
-<script lang="ts">
+<script>
   export let selected: boolean = false
   export let prefetch: boolean = false
   export let href: string

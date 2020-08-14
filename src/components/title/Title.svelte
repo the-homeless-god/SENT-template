@@ -1,4 +1,4 @@
-<script lang="ts">
+<script>
   export let text: string
 
   import TextContent from '../content/TextContent.svelte'

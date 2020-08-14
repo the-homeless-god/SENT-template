@@ -52,7 +52,7 @@
     "svelte": "^3.24.1",
     "svelte-check": "^0.1.58",
     "svelte-loader": "^2.13.6",
-    "svelte-preprocess": "^4.0.10",
+    "svelte-preprocess": "^4.0.12",
     "ts-loader": "^8.0.2",
     "typescript": "^3.9.7",
     "webpack": "^4.44.1"

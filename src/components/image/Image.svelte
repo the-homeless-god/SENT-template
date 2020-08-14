@@ -1,4 +1,4 @@
-<script lang="ts">
+<script>
   export let alt: string
   export let caption: string
   export let height: string

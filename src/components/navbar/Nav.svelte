@@ -1,4 +1,4 @@
-<script lang="ts">
+<script>
   export let segment: string = ''
   export let tabs: Tab[] = []
 

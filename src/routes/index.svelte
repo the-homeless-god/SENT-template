@@ -1,4 +1,4 @@
-<script lang="ts">
+<script>
   import GlobalHeader from '../components/header/GlobalHeader.svelte'
   import Image from '../components/image/Image.svelte'
   import Title from '../components/title/Title.svelte'

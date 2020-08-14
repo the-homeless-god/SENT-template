@@ -1,4 +1,4 @@
-<script context="module" lang="ts">
+<script context="module">
   import Request from '../../classes/request'
   import { loggerWithDate } from '../../helpers/logger.helper'
 
@@ -19,7 +19,7 @@
   }
 </script>
 
-<script lang="ts">
+<script>
   import type { Post } from '../../types'
 
   export let post: Post

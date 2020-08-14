@@ -1,4 +1,4 @@
-<script lang="ts">
+<script>
   import type { Post } from '../../types'
 
   import Request from '../../classes/request'

@@ -45,6 +45,10 @@ const preprocessConfig = preprocess({
       ],
     ],
   },
+  defaults: {
+    script: 'typescript',
+  },
+  sourceMap: dev,
 })
 
 export default {
