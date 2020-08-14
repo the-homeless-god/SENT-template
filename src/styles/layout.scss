@@ -1,8 +1,8 @@
 main {
   position: relative;
   max-width: 56em;
-  background-color: white;
+  background-color: $light-color;
   padding: 2em;
-  margin: 0 auto;
+  margin: $width-margin;
   box-sizing: border-box;
 }

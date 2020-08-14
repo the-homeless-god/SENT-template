@@ -28,6 +28,13 @@ const onwarn = (warning, _onwarn) => (warning.code === 'CIRCULAR_DEPENDENCY' && 
 const dedupe = (importee) => importee === 'svelte' || importee.startsWith('svelte/')
 const extensions = ['.js', '.mjs', '.html', '.svelte', '.ts']
 
+const scssConfiguration = (postfix) => ({
+  output: `public/assets/css/${postfix}.css`,
+  sourceMap: dev,
+  prefix: '@import \'src/styles/variables.scss\';',
+  watch: 'src/**/*.(scss|svelte)',
+})
+
 const preprocessConfig = preprocess({
   babel: {
     presets: [
@@ -60,10 +67,7 @@ export default {
         'process.browser': true,
         'process.env.NODE_ENV': JSON.stringify(mode),
       }),
-      scss({
-        output: 'public/assets/css/client.css',
-        sourceMap: 'public/assets/css/client.css.map',
-      }),
+      scss(scssConfiguration('client')),
       svelte({
         dev,
         hydratable: true,
@@ -100,10 +104,7 @@ export default {
         'process.browser': false,
         'process.env.NODE_ENV': JSON.stringify(mode),
       }),
-      scss({
-        output: 'public/assets/css/server.css',
-        sourceMap: 'public/assets/css/server.css.map',
-      }),
+      scss(scssConfiguration('server')),
       svelte({
         generate: 'ssr',
         dev,
