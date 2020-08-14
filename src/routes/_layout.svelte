@@ -1,3 +1,7 @@
+<script context="module">
+  export async function preload() {}
+</script>
+
 <script>
   export let segment: string
 
