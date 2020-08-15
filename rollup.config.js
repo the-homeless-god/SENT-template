@@ -1,5 +1,6 @@
 import commonjs from '@rollup/plugin-commonjs'
 import config from 'sapper/config/rollup'
+import dotenv from 'dotenv'
 import json from '@rollup/plugin-json'
 import resolve from '@rollup/plugin-node-resolve'
 import replace from '@rollup/plugin-replace'
@@ -11,6 +12,8 @@ import { terser } from 'rollup-plugin-terser'
 import preprocess from 'svelte-preprocess'
 
 import pkg from './package.json'
+
+const environment = dotenv.config().parsed
 
 const mode = process.env.NODE_ENV
 const dev = mode === 'development'
@@ -34,6 +37,8 @@ const scssConfiguration = (postfix) => ({
   prefix: '@import \'src/styles/variables.scss\';',
   watch: 'src/**/*.(scss|svelte)',
 })
+
+console.log(environment)
 
 const preprocessConfig = preprocess({
   babel: {
@@ -66,6 +71,7 @@ export default {
       replace({
         'process.browser': true,
         'process.env.NODE_ENV': JSON.stringify(mode),
+        __environment: JSON.stringify(environment),
       }),
       scss(scssConfiguration('client')),
       svelte({
@@ -103,6 +109,7 @@ export default {
       replace({
         'process.browser': false,
         'process.env.NODE_ENV': JSON.stringify(mode),
+        __environment: JSON.stringify(environment),
       }),
       scss(scssConfiguration('server')),
       svelte({
@@ -152,6 +159,7 @@ export default {
       replace({
         'process.browser': true,
         'process.env.NODE_ENV': JSON.stringify(mode),
+        __environment: JSON.stringify(environment),
       }),
       commonjs(),
       typescript(),

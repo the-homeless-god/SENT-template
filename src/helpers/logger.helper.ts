@@ -1,7 +1,13 @@
+import { isDevelopment } from './environment.helper'
+
 export const logger = (args: unknown): void => {
-  console.log(args)
+  if (isDevelopment) {
+    console.log(args)
+  }
 }
 
 export const loggerWithDate = (args: unknown): void => {
-  console.log(args, new Date())
+  if (isDevelopment) {
+    console.log(args, new Date())
+  }
 }

@@ -22,6 +22,7 @@ https://github.com/Zimtir/SENT-template
 ![GitHub package.json dependency version (dev dep on branch)](https://img.shields.io/github/package-json/dependency-version/Zimtir/sent-template/dev/prettier?color=green)
 ![GitHub package.json dependency version (dev dep on branch)](https://img.shields.io/github/package-json/dependency-version/Zimtir/sent-template/dev/typescript?color=green)
 ![GitHub package.json dependency version (dev dep on branch)](https://img.shields.io/github/package-json/dependency-version/Zimtir/sent-template/dev/@storybook/svelte?color=green)
+![GitHub package.json dependency version (dev dep on branch)](https://img.shields.io/github/package-json/dependency-version/Zimtir/sent-template/dev/dotenv?color=green)
 
 ## List of features:
 
@@ -29,6 +30,7 @@ https://github.com/Zimtir/SENT-template
 - [Develop in container](https://code.visualstudio.com/docs/remote/containers)
 - [Docker](https://www.docker.com/)
 - [Docker Compose](https://docs.docker.com/compose/)
+- [DotEnv](https://github.com/motdotla/dotenv)
 - [EditorConfig](https://editorconfig.org/)
 - [ESLint](https://eslint.org/)
 - [Express.js](https://www.npmjs.com/package/express)
