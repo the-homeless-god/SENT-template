@@ -3,12 +3,12 @@
 
   h2 {
     font-size: 1.4em;
-    font-weight: 500;
+    font-weight: $text-light-bold-weight;
   }
 
   pre {
-    background-color: #f9f9f9;
-    box-shadow: inset 1px 1px 5px rgba(0, 0, 0, 0.05);
+    background-color: $soft-light-color;
+    box-shadow: $shadow-box;
     padding: 0.5em;
     border-radius: 2px;
     overflow-x: auto;
@@ -32,18 +32,5 @@
 
   p.center {
     text-align: center;
-  }
-
-  ul {
-    line-height: 1.5;
-    display: flex;
-    flex-wrap: wrap;
-    padding-left: 30px;
-
-    li {
-      display: list-item;
-      margin: 0 0 0.5em 0;
-      width: 100%;
-    }
   }
 }

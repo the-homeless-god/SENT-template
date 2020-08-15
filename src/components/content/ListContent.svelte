@@ -1,4 +1,4 @@
-<script lang="ts">
+<script>
   export let attributeHref: string = 'href'
   export let attributeTitle: string = 'title'
   export let items: any[]

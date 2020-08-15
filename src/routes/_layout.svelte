@@ -1,4 +1,8 @@
-<script lang="ts">
+<script context="module">
+  export async function preload() {}
+</script>
+
+<script>
   export let segment: string
 
   import { tabs } from '../helpers/tab.helper'

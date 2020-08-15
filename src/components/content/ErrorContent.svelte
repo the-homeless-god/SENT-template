@@ -1,16 +1,16 @@
-<script lang="ts">
+<script>
   export let error: Error
+
+  import { isDevelopment } from '../../helpers/environment.helper'
 
   import SlotContent from './SlotContent.svelte'
   import TextContent from './TextContent.svelte'
-
-  const dev = process.env.NODE_ENV === 'development'
 </script>
 
 <SlotContent>
   <TextContent text="{error.message}" />
 
-  {#if dev && error.stack}
+  {#if isDevelopment && error.stack}
     <pre>{error.stack}</pre>
   {/if}
 </SlotContent>

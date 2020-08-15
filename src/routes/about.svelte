@@ -1,4 +1,4 @@
-<script lang="ts">
+<script>
   import GlobalHeader from '../components/header/GlobalHeader.svelte'
   import Header from '../components/header/Header.svelte'
   import TextContent from '../components/content/TextContent.svelte'

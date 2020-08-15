@@ -1,4 +1,4 @@
-<script lang="ts">
+<script>
   export let text: string
 
   export let center: boolean = false

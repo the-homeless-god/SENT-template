@@ -1,5 +1,6 @@
-<script context="module" lang="ts">
+<script context="module">
   import Request from '../../classes/request'
+  import { HOST } from '../../helpers/environment.helper'
   import { loggerWithDate } from '../../helpers/logger.helper'
 
   import Content from '../../components/content/Content.svelte'
@@ -10,7 +11,7 @@
     // the `slug` parameter is available because
     // this file is called [slug].svelte
     try {
-      const post = await Request.get<Post>(`/blog/${params.slug}.json`)
+      const post = await Request.get<Post>(`${HOST}/blog/${params.slug}.json`)
 
       return { post }
     } catch (err) {
@@ -19,7 +20,7 @@
   }
 </script>
 
-<script lang="ts">
+<script>
   import type { Post } from '../../types'
 
   export let post: Post

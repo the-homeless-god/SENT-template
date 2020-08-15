@@ -1,5 +1,6 @@
 import commonjs from '@rollup/plugin-commonjs'
 import config from 'sapper/config/rollup'
+import dotenv from 'dotenv'
 import json from '@rollup/plugin-json'
 import resolve from '@rollup/plugin-node-resolve'
 import replace from '@rollup/plugin-replace'
@@ -11,6 +12,8 @@ import { terser } from 'rollup-plugin-terser'
 import preprocess from 'svelte-preprocess'
 
 import pkg from './package.json'
+
+const environment = dotenv.config().parsed
 
 const mode = process.env.NODE_ENV
 const dev = mode === 'development'
@@ -27,6 +30,15 @@ const onwarn = (warning, _onwarn) => (warning.code === 'CIRCULAR_DEPENDENCY' && 
 
 const dedupe = (importee) => importee === 'svelte' || importee.startsWith('svelte/')
 const extensions = ['.js', '.mjs', '.html', '.svelte', '.ts']
+
+const scssConfiguration = (postfix) => ({
+  output: `public/assets/css/${postfix}.css`,
+  sourceMap: dev,
+  prefix: '@import \'src/styles/variables.scss\';',
+  watch: 'src/**/*.(scss|svelte)',
+})
+
+console.log(environment)
 
 const preprocessConfig = preprocess({
   babel: {
@@ -45,6 +57,10 @@ const preprocessConfig = preprocess({
       ],
     ],
   },
+  defaults: {
+    script: 'typescript',
+  },
+  sourceMap: dev,
 })
 
 export default {
@@ -55,11 +71,9 @@ export default {
       replace({
         'process.browser': true,
         'process.env.NODE_ENV': JSON.stringify(mode),
+        __environment: JSON.stringify(environment),
       }),
-      scss({
-        output: 'public/assets/css/client.css',
-        sourceMap: 'public/assets/css/client.css.map',
-      }),
+      scss(scssConfiguration('client')),
       svelte({
         dev,
         hydratable: true,
@@ -95,11 +109,9 @@ export default {
       replace({
         'process.browser': false,
         'process.env.NODE_ENV': JSON.stringify(mode),
+        __environment: JSON.stringify(environment),
       }),
-      scss({
-        output: 'public/assets/css/server.css',
-        sourceMap: 'public/assets/css/server.css.map',
-      }),
+      scss(scssConfiguration('server')),
       svelte({
         generate: 'ssr',
         dev,
@@ -147,6 +159,7 @@ export default {
       replace({
         'process.browser': true,
         'process.env.NODE_ENV': JSON.stringify(mode),
+        __environment: JSON.stringify(environment),
       }),
       commonjs(),
       typescript(),

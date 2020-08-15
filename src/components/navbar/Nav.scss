@@ -1,35 +1,18 @@
 nav {
-  border-bottom: 1px solid rgba(255, 62, 0, 0.1);
+  border-bottom: $border-bottom;
   font-weight: 300;
   padding: 0 1em;
-}
 
-ul {
-  margin: 0;
-  padding: 0;
-  display: flex;
-  align-items: center;
-}
+  ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+  }
 
-/* clearfix */
-
-ul::after {
-  content: '';
-  clear: both;
-}
-
-.selected {
-  position: relative;
-  display: flex;
-  align-items: center;
-}
-
-.selected::after {
-  position: absolute;
-  content: '';
-  width: calc(100% - 1em);
-  height: 2px;
-  background-color: rgb(255, 62, 0);
-  display: block;
-  bottom: -1px;
+  /* clearfix */
+  ul::after {
+    content: '';
+    clear: both;
+  }
 }

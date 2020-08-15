@@ -6,7 +6,7 @@ ul {
 
   li {
     display: list-item;
-    margin: 0 0 0.5em 0;
+    margin: $soft-margin;
     width: 100%;
   }
 }
