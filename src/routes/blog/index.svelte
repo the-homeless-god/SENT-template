@@ -1,3 +1,12 @@
+<script context="module">
+  export const preload = () =>
+    fetch(`blog.json`)
+      .then((r) => r.json())
+      .then((posts) => {
+        return { posts }
+      })
+</script>
+
 <script>
   import type { Post } from '../../types'
 

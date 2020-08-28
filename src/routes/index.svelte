@@ -1,3 +1,7 @@
+<script context="module">
+  export const preload = () => {}
+</script>
+
 <script>
   import GlobalHeader from '../components/header/GlobalHeader.svelte'
   import Image from '../components/image/Image.svelte'
