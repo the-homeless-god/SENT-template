@@ -1,5 +1,5 @@
 <script context="module">
-  export const preload = () => {}
+  export async function preload() {}
 </script>
 
 <script>

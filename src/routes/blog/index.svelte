@@ -1,14 +1,5 @@
-<script context="module">
-  export const preload = () =>
-    fetch(`blog.json`)
-      .then((r) => r.json())
-      .then((posts) => {
-        return { posts }
-      })
-</script>
-
 <script>
-  import type { Post } from '../../types'
+  import type Post from '../../interfaces/post.interface'
 
   import Request from '../../classes/request'
   import { HOST } from '../../helpers/environment.helper'
@@ -18,7 +9,7 @@
   import Header from '../../components/header/Header.svelte'
   import ListContent from '../../components/content/ListContent.svelte'
 
-  const getPosts = async (): Promise<Post[]> => await Request.get<Post[]>(`${HOST}/blog.json`)
+  const getPosts = async (): Promise<any[]> => await Request.get<any[]>(`${HOST}/blog.json`)
 </script>
 
 <GlobalHeader title="Blog" />

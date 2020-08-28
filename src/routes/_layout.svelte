@@ -12,10 +12,6 @@
   import '../styles/layout.scss'
 </script>
 
-<script context="module">
-  export const preload = () => {}
-</script>
-
 <Nav {segment} {tabs} />
 
 <main>

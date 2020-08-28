@@ -1,4 +1,6 @@
 <script context="module">
+  import type Post from '../../interfaces/post.interface'
+
   import Request from '../../classes/request'
   import { HOST } from '../../helpers/environment.helper'
   import { loggerWithDate } from '../../helpers/logger.helper'
@@ -21,8 +23,6 @@
 </script>
 
 <script>
-  import type { Post } from '../../types'
-
   export let post: Post
 </script>
 

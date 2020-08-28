@@ -1,4 +1,4 @@
-import type { Tab } from '../types'
+import type { Tab } from '../interfaces/tab.interface'
 
 export const tabs: Tab[] = [
   {
