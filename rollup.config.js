@@ -7,11 +7,12 @@ import replace from '@rollup/plugin-replace'
 import scss from 'rollup-plugin-scss'
 import svelte from 'rollup-plugin-svelte'
 import typescript from '@rollup/plugin-typescript'
-import { builtinModules } from 'module'
 import { terser } from 'rollup-plugin-terser'
-import preprocess from 'svelte-preprocess'
+import { builtinModules } from 'module'
 
 import pkg from './package.json'
+
+const svelteConfig = require('./svelte.config')
 
 const environment = dotenv.config().parsed
 
@@ -40,29 +41,6 @@ const scssConfiguration = (postfix) => ({
 
 console.log(environment)
 
-const preprocessConfig = preprocess({
-  babel: {
-    presets: [
-      [
-        '@babel/preset-env',
-        {
-          loose: true,
-          // No need for babel to resolve modules
-          modules: false,
-          targets: {
-            // ! Very important. Target es6+
-            esmodules: true,
-          },
-        },
-      ],
-    ],
-  },
-  defaults: {
-    script: 'typescript',
-  },
-  sourceMap: dev,
-})
-
 export default {
   client: {
     input: config.client.input().replace(/\.js$/, '.ts'),
@@ -78,7 +56,7 @@ export default {
         dev,
         hydratable: true,
         emitCss: true,
-        preprocess: preprocessConfig,
+        preprocess: svelteConfig.preprocess,
       }),
       resolve({
         browser: true,
@@ -115,7 +93,7 @@ export default {
       svelte({
         generate: 'ssr',
         dev,
-        preprocess: preprocessConfig,
+        preprocess: svelteConfig.preprocess,
       }),
       resolve({
         dedupe,
