@@ -71,7 +71,7 @@ export default {
       commonjs({
         include: /node_modules/,
       }),
-      typescript({ sourceMap: true }),
+      typescript({ sourceMap: dev }),
       json(),
       legacy
         && !dev
@@ -105,7 +105,7 @@ export default {
       commonjs({
         include: /node_modules/,
       }),
-      typescript(),
+      typescript({ sourceMap: dev }),
       json({
         // All JSON files will be parsed by default,
         // but you can also specifically include/exclude files
@@ -144,7 +144,7 @@ export default {
         __environment: JSON.stringify(environment),
       }),
       commonjs(),
-      typescript(),
+      typescript({ sourceMap: dev }),
       !dev && terser(),
     ],
 
