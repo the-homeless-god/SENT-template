@@ -1,17 +1,12 @@
-const autoPreprocess = require('svelte-preprocess')
+const svelteConfig = require('../svelte.config')
+const { scssWebpackConfig } = require('../bundlers/css.bundler')
 
 module.exports = ({ config, mode }) => {
   const svelteLoader = config.module.rules.find(
     (r) => r.loader && r.loader.includes('svelte-loader'),
   )
-  svelteLoader.options.preprocess = autoPreprocess({
-    less: { includePaths: ['src', 'node_modules'] },
-    css: { includePaths: ['src', 'node_modules'] },
-    typescript: {
-      tsconfigFile: './tsconfig.json',
-      transpileOnly: true,
-    },
-  })
+  svelteLoader.options.preprocess = svelteConfig.preprocess
+
   config.module.rules.push({
     test: /\.(ts)$/,
     use: [
@@ -21,20 +16,9 @@ module.exports = ({ config, mode }) => {
     ],
   })
 
-  config.module.rules.push({
-    test: /\.scss$/,
-    use: [
-      {
-        loader: 'style-loader',
-      },
-      {
-        loader: 'css-loader',
-      },
-      {
-        loader: 'sass-loader',
-      },
-    ],
-  })
-  config.resolve.extensions.push('.ts', '.tsx')
+  config.module.rules.push(scssWebpackConfig)
+
+  config.resolve.extensions.push('.ts')
+
   return config
 }

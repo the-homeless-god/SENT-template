@@ -22,5 +22,14 @@ module.exports = {
       script: 'typescript',
     },
     sourceMap: process.env.NODE_ENV === 'development',
+    less: { includePaths: ['src', 'node_modules'] },
+    css: { includePaths: ['src', 'node_modules'] },
+    scss: {
+      prefix: '@import \'src/styles/variables.scss\';',
+    },
+    typescript: {
+      tsconfigFile: './tsconfig.json',
+      transpileOnly: true,
+    },
   }),
 }

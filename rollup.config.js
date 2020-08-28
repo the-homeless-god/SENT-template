@@ -12,6 +12,8 @@ import { builtinModules } from 'module'
 
 import pkg from './package.json'
 
+const scssRollupConfig = require('./bundlers/css.bundler')
+const onwarn = require('./bundlers/warning.bundler')
 const svelteConfig = require('./svelte.config')
 
 const environment = dotenv.config().parsed
@@ -20,28 +22,8 @@ const mode = process.env.NODE_ENV
 const dev = mode === 'development'
 const legacy = !!process.env.SAPPER_LEGACY_BUILD
 
-const warningText = 'Use of eval is strongly discouraged, as it poses security risks and may cause issues with minification'
-const warningIsIgnored = (warning) => warning.message.includes(warningText)
-  || warning.message.includes('Circular dependency: node_modules')
-  || warning.code === 'THIS_IS_UNDEFINED'
-  || warning.message.includes(
-    'If it is for external reference only, please consider using `export const preload`',
-  )
-
-// Workaround for https://github.com/sveltejs/sapper/issues/1266
-const onwarn = (warning, _onwarn) => (warning.code === 'CIRCULAR_DEPENDENCY' && /[/\\]@sapper[/\\]/.test(warning.message))
-  || warningIsIgnored(warning)
-  || console.warn(warning.toString())
-
 const dedupe = (importee) => importee === 'svelte' || importee.startsWith('svelte/')
 const extensions = ['.js', '.mjs', '.html', '.svelte', '.ts']
-
-const scssConfiguration = (postfix) => ({
-  output: `public/assets/css/${postfix}.css`,
-  sourceMap: dev,
-  prefix: '@import \'src/styles/variables.scss\';',
-  watch: 'src/**/*.(scss|svelte)',
-})
 
 console.log(environment)
 
@@ -55,7 +37,7 @@ export default {
         'process.env.NODE_ENV': JSON.stringify(mode),
         __environment: JSON.stringify(environment),
       }),
-      scss(scssConfiguration('client')),
+      scss(scssRollupConfig('client', dev)),
       svelte({
         dev,
         hydratable: true,
@@ -93,7 +75,7 @@ export default {
         'process.env.NODE_ENV': JSON.stringify(mode),
         __environment: JSON.stringify(environment),
       }),
-      scss(scssConfiguration('server')),
+      scss(scssRollupConfig('server', dev)),
       svelte({
         generate: 'ssr',
         dev,
