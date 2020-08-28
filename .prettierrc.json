@@ -3,7 +3,7 @@
   "singleQuote": true,
   "semi": false,
   "trailingComma": "all",
-  "printWidth": 100,
+  "printWidth": 120,
   "svelteSortOrder": "styles-scripts-markup",
   "svelteStrictMode": true,
   "svelteBracketNewLine": true,

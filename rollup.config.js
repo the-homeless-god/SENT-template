@@ -12,8 +12,8 @@ import { builtinModules } from 'module'
 
 import pkg from './package.json'
 
-const scssRollupConfig = require('./bundlers/css.bundler')
-const onwarn = require('./bundlers/warning.bundler')
+const cssBundler = require('./bundlers/css.bundler')
+const warnBundler = require('./bundlers/warning.bundler')
 const svelteConfig = require('./svelte.config')
 
 const environment = dotenv.config().parsed
@@ -37,7 +37,7 @@ export default {
         'process.env.NODE_ENV': JSON.stringify(mode),
         __environment: JSON.stringify(environment),
       }),
-      scss(scssRollupConfig('client', dev)),
+      scss(cssBundler.scssRollupConfig('client', dev)),
       svelte({
         dev,
         hydratable: true,
@@ -63,7 +63,7 @@ export default {
     ],
     preserveEntrySignatures: false,
 
-    onwarn,
+    onwarn: warnBundler.onwarn,
   },
 
   server: {
@@ -75,7 +75,7 @@ export default {
         'process.env.NODE_ENV': JSON.stringify(mode),
         __environment: JSON.stringify(environment),
       }),
-      scss(scssRollupConfig('server', dev)),
+      scss(cssBundler.scssRollupConfig('server', dev)),
       svelte({
         generate: 'ssr',
         dev,
@@ -109,10 +109,8 @@ export default {
         namedExports: true, // Default: true
       }),
     ],
-    external: Object.keys(pkg.dependencies).concat(
-      builtinModules || Object.keys(process.binding('natives')),
-    ),
-    onwarn,
+    external: Object.keys(pkg.dependencies).concat(builtinModules || Object.keys(process.binding('natives'))),
+    onwarn: warnBundler.onwarn,
   },
 
   serviceworker: {
@@ -131,6 +129,6 @@ export default {
     ],
 
     preserveEntrySignatures: false,
-    onwarn,
+    onwarn: warnBundler.onwarn,
   },
 }

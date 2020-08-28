@@ -1,4 +1,5 @@
 import { addParameters } from '@storybook/client-api'
+import { MINIMAL_VIEWPORTS } from '@storybook/addon-viewport'
 
 addParameters({
   docs: {
@@ -9,5 +10,9 @@ addParameters({
 
       return null
     },
+  },
+
+  viewport: {
+    viewports: MINIMAL_VIEWPORTS,
   },
 })
