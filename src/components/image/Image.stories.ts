@@ -1,7 +1,6 @@
-import { storiesOf } from '@storybook/svelte'
+import { withKnobs } from '@storybook/addon-knobs'
 
-import Note from '../../classes/note'
-import { wrapComponent } from '../../helpers/storybook.helper'
+import { wrap, ComponentStory } from '../../helpers/storybook.helper'
 import type { ImageProps } from './Image.utils'
 
 import Image from './Image.svelte'
@@ -12,23 +11,15 @@ const defaultState: ImageProps = {
   src: 'https://github.com/Zimtir/SENT-template/blob/master/public/assets/img/logo.png?raw=true',
   width: '100%',
 }
+export const Default = (): ComponentStory<ImageProps> => wrap<ImageProps>('image', Image, defaultState)
 
-storiesOf('Image', module)
-  .add('Default', wrapComponent<ImageProps>(Image, defaultState), {
-    notes: new Note('Image', 'Simple wrapper for all images', [
-      'You need control of all your images at one place',
-      'You want make a global images with default styling',
-    ]).getMarkdownNote(),
-  })
-  .add(
-    'With caption',
-    wrapComponent<ImageProps>(Image, {
-      ...defaultState,
-      caption: 'Some caption',
-    }),
-    {
-      notes: new Note('Image', 'Simple wrapper for all images', [
-        'You want to see a caption under your image',
-      ]).getMarkdownNote(),
-    },
-  )
+const captionState: ImageProps = {
+  ...defaultState,
+  caption: 'Some caption',
+}
+export const WithCaption = (): ComponentStory<ImageProps> => wrap<ImageProps>('imageWithCaption', Image, captionState)
+
+export default {
+  title: 'Image',
+  decorators: [withKnobs],
+}

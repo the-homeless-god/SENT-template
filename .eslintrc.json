@@ -21,7 +21,7 @@
       }
     ],
     "import/no-unresolved": "off",
-
+    "max-len": ["error", { "code": 120 }],
     "import/prefer-default-export": "off",
     "import/no-extraneous-dependencies": "off",
     "indent": ["error", 2],

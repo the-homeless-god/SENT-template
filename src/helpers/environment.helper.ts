@@ -17,3 +17,4 @@ export const isDevelopment = !!getEnvKey('IS_DEVELOPMENT')
 
 export const HOST = getEnvKey('HOST')
 export const PORT = getEnvKey('PORT')
+export const OPEN_BROWSER_AFTER_BUILD = getEnvKey('OPEN_BROWSER_AFTER_BUILD')

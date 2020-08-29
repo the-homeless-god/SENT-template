@@ -1,4 +1,4 @@
-import type { Tab } from '../types'
+import type { Tab } from '../interfaces/tab.interface'
 
 export const tabs: Tab[] = [
   {
@@ -18,5 +18,12 @@ export const tabs: Tab[] = [
     href: 'blog',
     title: 'blog',
     prefetch: true,
+  },
+  {
+    href: 'https://github.com/Zimtir/SENT-template',
+    icon: 'icon-github',
+    title: '',
+    target: '_blank',
+    prefetch: false,
   },
 ]

@@ -7,11 +7,14 @@ import replace from '@rollup/plugin-replace'
 import scss from 'rollup-plugin-scss'
 import svelte from 'rollup-plugin-svelte'
 import typescript from '@rollup/plugin-typescript'
-import { builtinModules } from 'module'
 import { terser } from 'rollup-plugin-terser'
-import preprocess from 'svelte-preprocess'
+import { builtinModules } from 'module'
 
 import pkg from './package.json'
+
+const cssBundler = require('./bundlers/css.bundler')
+const warnBundler = require('./bundlers/warning.bundler')
+const svelteConfig = require('./svelte.config')
 
 const environment = dotenv.config().parsed
 
@@ -19,49 +22,10 @@ const mode = process.env.NODE_ENV
 const dev = mode === 'development'
 const legacy = !!process.env.SAPPER_LEGACY_BUILD
 
-const warningText = 'Use of eval is strongly discouraged, as it poses security risks and may cause issues with minification'
-const warningIsIgnored = (warning) => warning.message.includes(warningText)
-  || warning.message.includes('Circular dependency: node_modules')
-
-// Workaround for https://github.com/sveltejs/sapper/issues/1266
-const onwarn = (warning, _onwarn) => (warning.code === 'CIRCULAR_DEPENDENCY' && /[/\\]@sapper[/\\]/.test(warning.message))
-  || warningIsIgnored(warning)
-  || console.warn(warning.toString())
-
 const dedupe = (importee) => importee === 'svelte' || importee.startsWith('svelte/')
 const extensions = ['.js', '.mjs', '.html', '.svelte', '.ts']
 
-const scssConfiguration = (postfix) => ({
-  output: `public/assets/css/${postfix}.css`,
-  sourceMap: dev,
-  prefix: '@import \'src/styles/variables.scss\';',
-  watch: 'src/**/*.(scss|svelte)',
-})
-
 console.log(environment)
-
-const preprocessConfig = preprocess({
-  babel: {
-    presets: [
-      [
-        '@babel/preset-env',
-        {
-          loose: true,
-          // No need for babel to resolve modules
-          modules: false,
-          targets: {
-            // ! Very important. Target es6+
-            esmodules: true,
-          },
-        },
-      ],
-    ],
-  },
-  defaults: {
-    script: 'typescript',
-  },
-  sourceMap: dev,
-})
 
 export default {
   client: {
@@ -73,12 +37,12 @@ export default {
         'process.env.NODE_ENV': JSON.stringify(mode),
         __environment: JSON.stringify(environment),
       }),
-      scss(scssConfiguration('client')),
+      scss(cssBundler.scssRollupConfig('client', dev)),
       svelte({
         dev,
         hydratable: true,
         emitCss: true,
-        preprocess: preprocessConfig,
+        preprocess: svelteConfig.preprocess,
       }),
       resolve({
         browser: true,
@@ -89,7 +53,7 @@ export default {
       commonjs({
         include: /node_modules/,
       }),
-      typescript({ sourceMap: true }),
+      typescript({ sourceMap: dev }),
       json(),
       legacy
         && !dev
@@ -99,7 +63,7 @@ export default {
     ],
     preserveEntrySignatures: false,
 
-    onwarn,
+    onwarn: warnBundler.onwarn,
   },
 
   server: {
@@ -111,11 +75,11 @@ export default {
         'process.env.NODE_ENV': JSON.stringify(mode),
         __environment: JSON.stringify(environment),
       }),
-      scss(scssConfiguration('server')),
+      scss(cssBundler.scssRollupConfig('server', dev)),
       svelte({
         generate: 'ssr',
         dev,
-        preprocess: preprocessConfig,
+        preprocess: svelteConfig.preprocess,
       }),
       resolve({
         dedupe,
@@ -123,7 +87,7 @@ export default {
       commonjs({
         include: /node_modules/,
       }),
-      typescript(),
+      typescript({ sourceMap: dev }),
       json({
         // All JSON files will be parsed by default,
         // but you can also specifically include/exclude files
@@ -145,10 +109,8 @@ export default {
         namedExports: true, // Default: true
       }),
     ],
-    external: Object.keys(pkg.dependencies).concat(
-      builtinModules || Object.keys(process.binding('natives')),
-    ),
-    onwarn,
+    external: Object.keys(pkg.dependencies).concat(builtinModules || Object.keys(process.binding('natives'))),
+    onwarn: warnBundler.onwarn,
   },
 
   serviceworker: {
@@ -162,11 +124,11 @@ export default {
         __environment: JSON.stringify(environment),
       }),
       commonjs(),
-      typescript(),
+      typescript({ sourceMap: dev }),
       !dev && terser(),
     ],
 
     preserveEntrySignatures: false,
-    onwarn,
+    onwarn: warnBundler.onwarn,
   },
 }

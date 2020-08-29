@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 // Ordinarily, you'd generate this data from markdown files in your
 // repo, or fetch them from a database of some kind. But in order to
 // avoid unnecessary dependencies in the starter template, and in the
