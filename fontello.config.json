@@ -1,0 +1,9 @@
+{
+  "name": "fontello",
+  "css_prefix_text": "icon-",
+  "css_use_suffix": false,
+  "hinting": true,
+  "units_per_em": 1000,
+  "ascent": 850,
+  "glyphs": [{ "uid": "0f6a2573a7b6df911ed199bb63717e27", "css": "github", "code": 61595, "src": "fontawesome" }]
+}

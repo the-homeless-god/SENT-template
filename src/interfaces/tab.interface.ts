@@ -1,6 +1,9 @@
 export interface Tab {
   href: string
-  title: string
-  segment?: string
+  icon?: string
+  new?: boolean
   prefetch: boolean
+  segment?: string
+  target?: string
+  title: string
 }

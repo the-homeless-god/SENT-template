@@ -19,4 +19,11 @@ export const tabs: Tab[] = [
     title: 'blog',
     prefetch: true,
   },
+  {
+    href: 'https://github.com/Zimtir/SENT-template',
+    icon: 'icon-github',
+    title: '',
+    target: '_blank',
+    prefetch: false,
+  },
 ]
