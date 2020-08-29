@@ -129,6 +129,16 @@ npm run eslint:fix
 npm run storybook
 ```
 
+## Fontello usage
+
+```shell
+# any new icons can be added by update of fontello.config.json
+# all icons placed at http://fontello.com/
+
+# build icons & fonts based on fontello.config.json
+npm run build
+```
+
 ## Update packages
 
 ```shell
