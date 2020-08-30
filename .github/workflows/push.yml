@@ -15,6 +15,7 @@ jobs:
       - run: npm run stylelint
       - run: npm run svelte:check
       - run: npm run fontello
+      - run: cp template.env .env
       - run: npm run build
       - run: npm run test:headless:prod
       - name: docker build and push
