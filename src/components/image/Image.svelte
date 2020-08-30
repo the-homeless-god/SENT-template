@@ -10,6 +10,8 @@
 
   import { onMount } from 'svelte'
 
+  import { isNoEmptyAlt } from './Image.utils'
+
   import './Image.scss'
 
   onMount(() => {
