@@ -5,13 +5,24 @@
   export let src: string
   export let width: string
 
+  export let onCaptionClick: () => void
+  export let onClick: () => void
+
+  import { onMount } from 'svelte'
+
+  import { isNoEmptyAlt } from './Image.utils'
+
   import './Image.scss'
+
+  onMount(() => {
+    isNoEmptyAlt(alt)
+  })
 </script>
 
 <figure>
-  <img {alt} {height} {src} {width} />
+  <img on:click="{onClick}" {alt} {height} {src} {width} />
 
   {#if caption}
-    <figcaption>{caption}</figcaption>
+    <figcaption on:click="{onCaptionClick}">{caption}</figcaption>
   {/if}
 </figure>

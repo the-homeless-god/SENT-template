@@ -12,7 +12,8 @@
     "moduleResolution": "node",
     "target": "ESNEXT",
     "typeRoots": ["typings"],
-    "types": ["svelte"],
-    "skipLibCheck": true
+    "types": ["svelte", "@types/mocha", "cypress"],
+    "skipLibCheck": true,
+    "sourceMap": false
   }
 }

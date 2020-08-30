@@ -2,7 +2,7 @@
   export let segment: string = ''
   export let tabs: Tab[] = []
 
-  import type { Tab } from '../../types'
+  import type { Tab } from '../../interfaces/tab.interface'
   import { showSegment } from './Nav.utils'
 
   import NavLink from './NavLink.svelte'

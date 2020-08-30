@@ -20,6 +20,7 @@
         "ts": "never"
       }
     ],
+    "implicit-arrow-linebreak": "off",
     "import/no-unresolved": "off",
     "max-len": ["error", { "code": 120 }],
     "import/prefer-default-export": "off",
