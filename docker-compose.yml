@@ -10,7 +10,7 @@ services:
     command: npm run start
     restart: unless-stopped
     ports:
-      - "3000:3000"
+      - '3000:3000'
     networks:
       - test-network
 
@@ -20,7 +20,7 @@ services:
       context: .
       dockerfile: docker/nginx/Dockerfile
     ports:
-      - "80:80"
+      - '80:80'
     depends_on:
       - nodejs
     networks:
