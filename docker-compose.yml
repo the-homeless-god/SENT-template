@@ -1,17 +1,32 @@
-version: '3.3'
+version: '3.5'
 
 services:
-  sent-template:
+  nodejs:
     image: 9e3u2f0b1/sent-template:latest
+    container_name: nodejs
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: docker/nodejs/Dockerfile
     command: npm run start
     restart: unless-stopped
     ports:
-      - '3000:3000'
-    volumes:
-      - node_modules:/usr/app/node_modules
+      - "3000:3000"
+    networks:
+      - test-network
 
-volumes:
-  node_modules:
+  nginx:
+    container_name: nginx
+    build:
+      context: .
+      dockerfile: docker/nginx/Dockerfile
+    ports:
+      - "80:80"
+    depends_on:
+      - nodejs
+    networks:
+      - test-network
+
+networks:
+  test-network:
+    name: test-network
+    driver: bridge

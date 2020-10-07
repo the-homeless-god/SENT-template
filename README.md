@@ -54,6 +54,7 @@ npx degit "Zimtir/SENT-template" my-app
 - [GitHub Actions](https://docs.github.com/en/actions)
 - [Husky](https://github.com/typicode/husky)
 - [Lint staged](https://github.com/okonet/lint-staged)
+- [Nginx](https://nginx.org/)
 - [Node.js](https://nodejs.org/en/)
 - [Prettier](https://prettier.io/)
 - [SASS](https://sass-lang.com/documentation)
