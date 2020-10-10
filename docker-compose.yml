@@ -14,6 +14,18 @@ services:
     networks:
       - test-network
 
+  storybook:
+    container_name: storybook
+    build:
+      context: .
+      dockerfile: docker/storybook/Dockerfile
+    restart: unless-stopped
+    command: npm run storybook
+    ports:
+      - '6006:6006'
+    networks:
+      - test-network
+
   nginx:
     container_name: nginx
     build:

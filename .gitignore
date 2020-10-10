@@ -11,3 +11,4 @@ public/assets/css/client.css
 public/assets/font/
 .env
 .eslintcache
+storybook-static
