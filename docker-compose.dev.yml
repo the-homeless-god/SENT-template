@@ -1,0 +1,62 @@
+version: '3.5'
+
+services:
+  nodejs:
+    image: 9e3u2f0b1/sent-template:latest
+    container_name: nodejs
+    env_file: .env
+    build:
+      context: .
+      dockerfile: docker/nodejs/Dockerfile
+    command: npm run start
+    restart: unless-stopped
+    ports:
+      - '3000:3000'
+    networks:
+      - test-network
+
+  storybook:
+    container_name: storybook
+    build:
+      context: .
+      dockerfile: docker/storybook/Dockerfile
+    restart: unless-stopped
+    command: npm run storybook
+    ports:
+      - '6006:6006'
+    networks:
+      - test-network
+
+  test:
+    container_name: test
+    build:
+      context: .
+      dockerfile: docker/test/Dockerfile
+    environment:
+      CYPRESS_BASE_URL: http://nodejs:3000
+    command: npm run test:headless
+    depends_on:
+      - nodejs
+    networks:
+      - test-network
+
+  nginx:
+    container_name: nginx
+    build:
+      context: .
+      dockerfile: docker/nginx/Dockerfile
+    ports:
+      - 80:80/tcp
+      - 443:443/tcp
+    depends_on:
+      - nodejs
+    networks:
+      - test-network
+
+networks:
+  test-network:
+    name: test-network
+    driver: bridge
+
+volumes:
+  node_modules:
