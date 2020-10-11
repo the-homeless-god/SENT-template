@@ -1,37 +1,52 @@
-import ServerTool from 'node-crud-kit/lib/tools/server.tool'
 import * as sapper from '@sapper/server'
 
 import { PORT } from './helpers/environment.helper'
 import { loggerWithDate } from './helpers/logger.helper'
 import { openBrowser } from './helpers/browser.helper'
+import { initExpress } from './backend/express'
+import { getStatus } from './backend/routes/status'
 
-const express = ServerTool.initExpress({
-  bodyParser: true,
-  routeView: true,
-  dotenv: { enabled: true, path: '.env' },
-  handleErrors: true,
-  listen: true,
-  static: {
-    enabled: true,
-    path: 'public',
+const middlewares = [sapper.middleware]
+const routes = [getStatus()]
+
+initExpress(
+  {
+    bodyParser: {
+      enabled: true,
+    },
+    router: {
+      enabled: true,
+      prefix: '/api',
+      view: {
+        enabled: true,
+      },
+    },
+    dotenv: { enabled: true, path: '.env' },
+    errors: {
+      enabled: true,
+    },
+    listen: {
+      enabled: true,
+      callback: () => {
+        loggerWithDate(`Service started on port ${PORT}.`)
+
+        openBrowser()
+      },
+    },
+    static: {
+      enabled: true,
+      payload: {
+        path: 'public',
+      },
+    },
+    compression: {
+      enabled: true,
+      payload: {
+        threshold: 0,
+      },
+    },
+    port: parseInt(PORT, 10),
   },
-  compression: {
-    enabled: true,
-    threshold: 0,
-  },
-})
-
-express.app.use(sapper.middleware())
-
-express.app.get('/status', (req, res) => {
-  res.send({
-    status: 200,
-    message: 'OK',
-  })
-})
-
-express.installAfterRoutes(PORT, () => {
-  loggerWithDate(`Service started on port ${PORT}.`)
-
-  openBrowser()
-})
+  middlewares,
+  routes,
+)

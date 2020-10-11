@@ -3,3 +3,11 @@
 node_modules
 npm-debug.log
 storybook-static
+__sapper__
+docker
+public
+scripts
+.eslintcache
+template.env
+README.md
+nginx.conf

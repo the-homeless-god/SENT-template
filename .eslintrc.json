@@ -22,6 +22,14 @@
     ],
     "implicit-arrow-linebreak": "off",
     "import/no-unresolved": "off",
+    "object-curly-newline": "off",
+    "no-unused-expressions": [
+      "error",
+      {
+        "allowShortCircuit": true,
+        "allowTernary": true
+      }
+    ],
     "max-len": ["error", { "code": 120 }],
     "import/prefer-default-export": "off",
     "import/no-extraneous-dependencies": "off",
