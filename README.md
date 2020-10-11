@@ -52,6 +52,7 @@ npx degit "Zimtir/SENT-template" my-app
 - [Express.js](https://www.npmjs.com/package/express)
 - [Fontello](http://fontello.com/)
 - [GitHub Actions](https://docs.github.com/en/actions)
+- [Helmet](https://helmetjs.github.io/)
 - [Husky](https://github.com/typicode/husky)
 - [Lint staged](https://github.com/okonet/lint-staged)
 - [Nginx](https://nginx.org/)
