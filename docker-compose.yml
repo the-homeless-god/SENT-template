@@ -4,6 +4,7 @@ services:
   nodejs:
     image: 9e3u2f0b1/sent-template:latest
     container_name: nodejs
+    env_file: .env
     build:
       context: .
       dockerfile: docker/nodejs/Dockerfile
@@ -26,6 +27,19 @@ services:
     networks:
       - test-network
 
+  test:
+    container_name: test
+    build:
+      context: .
+      dockerfile: docker/test/Dockerfile
+    environment:
+      CYPRESS_BASE_URL: http://nodejs:3000
+    command: npm run test:headless
+    depends_on:
+      - nodejs
+    networks:
+      - test-network
+
   nginx:
     container_name: nginx
     build:
@@ -42,3 +56,6 @@ networks:
   test-network:
     name: test-network
     driver: bridge
+
+volumes:
+  node_modules:
