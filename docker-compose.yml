@@ -46,7 +46,8 @@ services:
       context: .
       dockerfile: docker/nginx/Dockerfile
     ports:
-      - '80:80'
+      - 80:80/tcp
+      - 443:443/tcp
     depends_on:
       - nodejs
     networks:

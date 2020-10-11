@@ -3,11 +3,9 @@
 node_modules
 npm-debug.log
 storybook-static
-__sapper__
+__sapper__/dev
 docker
-public
 scripts
 .eslintcache
 template.env
 README.md
-nginx.conf
