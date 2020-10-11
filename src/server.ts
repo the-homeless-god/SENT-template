@@ -1,12 +1,9 @@
-import * as sapper from '@sapper/server'
-
 import { PORT } from './helpers/environment.helper'
 import { loggerWithDate } from './helpers/logger.helper'
 import { openBrowser } from './helpers/browser.helper'
 import { initExpress } from './backend/express'
 import { getStatus } from './backend/routes/status'
 
-const middlewares = [sapper.middleware]
 const routes = [getStatus()]
 
 initExpress(
@@ -33,6 +30,9 @@ initExpress(
         openBrowser()
       },
     },
+    security: {
+      enabled: true,
+    },
     static: {
       enabled: true,
       payload: {
@@ -47,6 +47,5 @@ initExpress(
     },
     port: parseInt(PORT, 10),
   },
-  middlewares,
   routes,
 )

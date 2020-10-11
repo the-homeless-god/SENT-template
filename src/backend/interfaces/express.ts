@@ -37,6 +37,7 @@ export interface ExpressConfiguration {
   compression: Setting & {
     payload: CompressionPayload
   }
+  security: Setting
   listen: Setting
   port: number
 }
