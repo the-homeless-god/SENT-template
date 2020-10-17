@@ -7,4 +7,3 @@ COPY . .
 RUN npm install
 
 EXPOSE 6006
-
