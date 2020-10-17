@@ -30,8 +30,7 @@ jobs:
       - name: docker build and push
         uses: docker/build-push-action@v2
         with:
-          repository: 9e3u2f0b1/sent-template
-          tags: latest
+          tags: 9e3u2f0b1/sent-template:latest
           file: ./docker/nodejs/Dockerfile
           push: true
           context: .
