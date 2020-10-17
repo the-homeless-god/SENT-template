@@ -94,4 +94,7 @@ export const setupErrorHandler = (): RequestHandler => {
   return errorThrower
 }
 
-export const setupHelmet = (): RequestHandler => helmet()
+export const setupHelmet = (): RequestHandler =>
+  helmet({
+    contentSecurityPolicy: false,
+  })
