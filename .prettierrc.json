@@ -7,5 +7,6 @@
   "svelteSortOrder": "styles-scripts-markup",
   "svelteStrictMode": true,
   "svelteBracketNewLine": true,
-  "svelteAllowShorthand": true
+  "svelteAllowShorthand": true,
+  "plugins": ["prettier-plugin-svelte"]
 }

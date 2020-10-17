@@ -2,3 +2,10 @@
 .gitignore
 node_modules
 npm-debug.log
+storybook-static
+__sapper__/dev
+docker
+scripts
+.eslintcache
+template.env
+README.md

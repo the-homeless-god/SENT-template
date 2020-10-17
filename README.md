@@ -28,6 +28,10 @@ https://github.com/Zimtir/SENT-template
 ![GitHub package.json dependency version (dev dep on branch)](https://img.shields.io/github/package-json/dependency-version/Zimtir/sent-template/dev/dotenv?color=green&style=for-the-badge)
 ![GitHub package.json dependency version (dev dep on branch)](https://img.shields.io/github/package-json/dependency-version/Zimtir/sent-template/dev/cypress?color=green&style=for-the-badge)
 
+## Design
+
+![Design](./design/architecture.svg)
+
 ## Usage
 
 ```shell
@@ -52,8 +56,10 @@ npx degit "Zimtir/SENT-template" my-app
 - [Express.js](https://www.npmjs.com/package/express)
 - [Fontello](http://fontello.com/)
 - [GitHub Actions](https://docs.github.com/en/actions)
+- [Helmet](https://helmetjs.github.io/)
 - [Husky](https://github.com/typicode/husky)
 - [Lint staged](https://github.com/okonet/lint-staged)
+- [Nginx](https://nginx.org/)
 - [Node.js](https://nodejs.org/en/)
 - [Prettier](https://prettier.io/)
 - [SASS](https://sass-lang.com/documentation)

@@ -1,11 +1,11 @@
-version: '3.3'
+version: '3.5'
 
 services:
   sent-template:
     image: 9e3u2f0b1/sent-template:latest
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: docker/nodejs/Dockerfile
     command: npm run start
     restart: unless-stopped
     ports:

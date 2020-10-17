@@ -25,3 +25,5 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
           repository: 9e3u2f0b1/sent-template
           tags: latest
+          file: ./docker/nodejs/Dockerfile
+          context: .
