@@ -162,7 +162,7 @@
   "size-limit": [
     {
       "path": "__sapper__/build/client/**.js",
-      "import": "{ createStore }",
+      "import": "{ createComponent }",
       "limit": "500 ms"
     }
   ],
