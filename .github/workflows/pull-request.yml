@@ -20,9 +20,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
-      - uses: andresz1/size-limit-action@v1.0.0
+      - uses: andresz1/size-limit-action@v1.4.0
         with:
-          access_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
       - run: cp template.env .env
       - run: npm ci
       - run: npm run fontello
