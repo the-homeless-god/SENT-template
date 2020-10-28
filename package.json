@@ -163,7 +163,8 @@
     {
       "path": "__sapper__/build/client/**.js",
       "import": "{ createComponent }",
-      "limit": "500 ms"
+      "limit": "500 ms",
+      "skip_step": "build"
     }
   ],
   "repository": {
