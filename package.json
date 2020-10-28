@@ -138,7 +138,7 @@
     "prettier:root": "npm run prettier:root:json && npm run prettier:root:js",
     "prettier:root:js": "prettier --write ./*.js",
     "prettier:root:json": "prettier --write ./*.json",
-    "size": "npm run build && size-limit",
+    "size": "size-limit",
     "start": "node __sapper__/build",
     "storybook": "start-storybook -p 6006",
     "storybook:build": "build-storybook",
