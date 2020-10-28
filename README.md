@@ -27,6 +27,7 @@ https://github.com/Zimtir/SENT-template
 ![GitHub package.json dependency version (dev dep on branch)](https://img.shields.io/github/package-json/dependency-version/Zimtir/sent-template/dev/@storybook/svelte?color=green&style=for-the-badge)
 ![GitHub package.json dependency version (dev dep on branch)](https://img.shields.io/github/package-json/dependency-version/Zimtir/sent-template/dev/dotenv?color=green&style=for-the-badge)
 ![GitHub package.json dependency version (dev dep on branch)](https://img.shields.io/github/package-json/dependency-version/Zimtir/sent-template/dev/cypress?color=green&style=for-the-badge)
+![GitHub package.json dependency version (dev dep on branch)](https://img.shields.io/github/package-json/dependency-version/Zimtir/sent-template/dev/size-limit?color=green&style=for-the-badge)
 
 ## Design
 
@@ -64,6 +65,7 @@ npx degit "Zimtir/SENT-template" my-app
 - [Prettier](https://prettier.io/)
 - [SASS](https://sass-lang.com/documentation)
 - [Sapper.js](https://sapper.svelte.dev/)
+- [Size Limit](https://github.com/ai/size-limit)
 - [Storybook](https://storybook.js.org/)
 - [Stylelint](https://github.com/stylelint/stylelint)
 - [Svelte.js](https://svelte.dev/)
