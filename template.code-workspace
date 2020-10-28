@@ -39,6 +39,8 @@
       "p1c2u.docker-compose",
       // ESLint
       "dbaeumer.vscode-eslint",
+      // Markdown Lint
+      "davidanson.vscode-markdownlint",
       // npm
       "eg2.vscode-npm-script",
       // Prettier

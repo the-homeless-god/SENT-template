@@ -1,6 +1,6 @@
 # SENT-template
 
-https://github.com/Zimtir/SENT-template
+[https://github.com/Zimtir/SENT-template](https://github.com/Zimtir/SENT-template)
 
 ## Sapper Express Node Template
 
@@ -44,7 +44,7 @@ npx degit "Zimtir/SENT-template" my-app
 
 [Wiki](https://github.com/Zimtir/SENT-template/wiki)
 
-## List of features:
+## List of features
 
 - [Commitlint](https://github.com/conventional-changelog/commitlint)
 - [Cypress](https://docs.cypress.io/guides/overview/why-cypress.html#In-a-nutshell)
