@@ -1,0 +1,137 @@
+{
+  "openapi": "3.0.0",
+  "servers": [
+    {
+      "url": "http://localhost:3000"
+    }
+  ],
+  "info": {
+    "description": "Swagger for SENT-template",
+    "version": "1.0.0",
+    "title": "SENT-Swagger",
+    "termsOfService": "http://swagger.io/terms/",
+    "contact": {
+      "email": "zimtir@mail.ru",
+      "name": "Marat Zimnurov",
+      "url": "https://github.com/Zimtir"
+    },
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  },
+  "tags": [],
+  "paths": {
+    "/api/status": {
+      "x-temp": {
+        "tags": ["server", "heartbeat"],
+        "summary": "Server availability",
+        "description": "Provides status for availability of server. Can be extended to the heartbeat system.",
+        "operationId": "status",
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "parameters": [],
+        "requestBody": {
+          "required": false,
+          "content": {
+            "application/json": {
+              "schema": {}
+            }
+          }
+        }
+      },
+      "get": {
+        "summary": "Server availability",
+        "description": "Provides status of server to be ensure that server has been started and works as expected.\nCan be extended into Heartbeat-system.",
+        "parameters": [],
+        "operationId": "",
+        "responses": {
+          "200": {
+            "description": "Default response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Status"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["server", "heartbeat"]
+      }
+    },
+    "/api/endpoints": {
+      "get": {
+        "summary": "Server routes",
+        "description": "Provides list of available routes at server. Can be useful to determine contracts between frontend and backend.",
+        "parameters": [],
+        "operationId": "",
+        "responses": {
+          "200": {
+            "description": "Default response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Endpoints"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["server", "router"]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Endpoints": {
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Endpoint"
+            }
+          },
+          "success": {
+            "type": "boolean"
+          }
+        }
+      },
+      "Endpoint": {
+        "properties": {
+          "path": {
+            "type": "string"
+          },
+          "methods": {
+            "type": "array"
+          },
+          "middleware": {
+            "type": "string"
+          }
+        }
+      },
+      "Status": {
+        "properties": {
+          "status": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "securitySchemes": {},
+    "links": {},
+    "callbacks": {}
+  },
+  "security": []
+}

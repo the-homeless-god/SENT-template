@@ -31,7 +31,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           tags: 9e3u2f0b1/sent-template:latest
-          file: ./docker/nodejs/Dockerfile
+          file: ./docker/web/Dockerfile.production
           push: true
           context: .
       - name: image digest

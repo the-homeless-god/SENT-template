@@ -3,6 +3,9 @@ import bodyParser from 'body-parser'
 import compression from 'compression'
 import express, { Router, RequestHandler, Request, Response, Express } from 'express'
 import helmet from 'helmet'
+import swaggerTool from 'swagger-ui-express'
+
+import swaggerDocument from '../../../design/swagger.json'
 import { logger } from '../../helpers/logger.helper'
 import { ResponseEnum } from '../enums/response'
 import type {
@@ -15,6 +18,8 @@ import type {
 import type { Route } from '../interfaces/route'
 import { getEndponts } from '../routes/endpoints'
 import { getError } from '../routes/error'
+import { RouteEnum } from '../enums/route'
+import { API_PREFIX } from '../../helpers/environment.helper'
 
 const setupRoute = <T>(router: Router, route: Route<T>): void => {
   if (route.enabled) {
@@ -38,8 +43,12 @@ const initRoutes = (router: Router, routes: Route<unknown>[]): Router => {
 }
 
 export const setupRoutes = (payload: RouterPayload): RequestHandler => {
-  const { routes, app, view } = payload
+  const { app, routes, swagger, view } = payload
   const router = express.Router()
+
+  if (swagger.enabled) {
+    app.use(API_PREFIX + RouteEnum.swagger, swaggerTool.serve, swaggerTool.setup(swaggerDocument))
+  }
 
   view.enabled && routes.push(getEndponts(app))
 

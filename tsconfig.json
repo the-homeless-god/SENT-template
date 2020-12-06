@@ -10,6 +10,7 @@
     "experimentalDecorators": true,
     "module": "ESNEXT",
     "moduleResolution": "node",
+    "resolveJsonModule": true,
     "target": "ESNEXT",
     "typeRoots": ["typings"],
     "types": ["svelte", "@types/mocha", "cypress", "node", "express"],

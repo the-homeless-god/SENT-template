@@ -1,4 +1,4 @@
-import { PORT } from './helpers/environment.helper'
+import { PORT, API_PREFIX } from './helpers/environment.helper'
 import { loggerWithDate } from './helpers/logger.helper'
 import { openBrowser } from './helpers/browser.helper'
 import { initExpress } from './backend/express'
@@ -13,7 +13,7 @@ initExpress(
     },
     router: {
       enabled: true,
-      prefix: '/api',
+      prefix: API_PREFIX,
       view: {
         enabled: true,
       },
@@ -44,6 +44,9 @@ initExpress(
       payload: {
         threshold: 0,
       },
+    },
+    swagger: {
+      enabled: true,
     },
     port: parseInt(PORT, 10),
   },

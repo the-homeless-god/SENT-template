@@ -4,7 +4,7 @@ const replace = require('@rollup/plugin-replace')
 const mode = process.env.NODE_ENV
 const legacy = Boolean(process.env.SAPPER_LEGACY_BUILD)
 
-const environment = dotenv.config().parsed
+const environment = dotenv.config().parsed || process.env
 const environmentJSON = JSON.stringify(environment)
 
 console.log(environment)

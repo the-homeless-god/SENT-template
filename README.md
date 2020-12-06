@@ -69,4 +69,5 @@ npx degit "Zimtir/SENT-template" my-app
 - [Storybook](https://storybook.js.org/)
 - [Stylelint](https://github.com/stylelint/stylelint)
 - [Svelte.js](https://svelte.dev/)
+- [Swagger](https://swagger.io)
 - [Typescript](https://www.typescriptlang.org/)
