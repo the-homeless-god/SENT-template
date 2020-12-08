@@ -47,7 +47,7 @@
     "fontello-cli": "^0.5.0",
     "helmet": "^4.1.1",
     "husky": "^4.3.0",
-    "lint-staged": "^10.4.1",
+    "lint-staged": "^10.5.3",
     "npm-run-all": "^4.1.5",
     "open": "^7.3.0",
     "prettier": "^2.1.2",
