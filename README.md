@@ -40,6 +40,70 @@
 npx degit "Zimtir/SENT-template" my-app
 ```
 
+## Swagger
+
+[Swagger configuration](./design/swagger.json)
+
+- Start application
+
+  ```shell
+  npm run dev
+
+  # or
+
+  npm run start
+  ```
+
+- Navigate to Swagger url (<http://localhost:3000/api/swagger>)
+
+## Docker
+
+### Production
+
+- Application
+
+  - The running of bundles in container
+  - Note: Sure to execute the build before `npm run build`
+
+  ```shell
+  docker-cmpose up sent-template
+  ```
+
+### Development
+
+- Application
+
+  - The running of application in development mode inside a container
+
+  ```shell
+  docker-compose -f docker-compose.dev.yml up web
+  ```
+
+- Storybook
+
+  - Demonstrates all components that can be used in development
+
+  ```shell
+  docker-compose -f docker-compose.dev.yml up storybook
+  ```
+
+- Nginx
+
+  - The hosting of bundles through Nginx
+  - Note: Sure to execute the build before `npm run build`
+
+  ```shell
+  docker-compose -f docker-compose.dev.yml up nginx
+  ```
+
+- Tests
+
+  - Allows to execute all tests in the container
+
+  ```shell
+  docker-compose -f docker-compose.dev.yml up test
+  ```
+
 ## Docs
 
 [Wiki](https://github.com/Zimtir/SENT-template/wiki)
