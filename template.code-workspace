@@ -49,18 +49,12 @@
       "sibiraj-s.vscode-scss-formatter",
       // SCSS IntelliSense
       "mrmlnc.vscode-scss",
-      // Svelte
-      "JamesBirtles.svelte-vscode",
       // Svelte Auto import
       "pivaszbs.svelte-autoimport",
       // Svelte 3 Snippets
       "fivethree.vscode-svelte-snippets",
-      // Svelte Intellisense
-      "ardenivanov.svelte-intellisense",
       // Svelte for VS Code
       "svelte.svelte-vscode",
-      // Svelte Type Checker
-      "halfnelson.svelte-type-checker-vscode",
       // TypeScript UML
       "myxvisual.vscode-ts-uml"
     ]
