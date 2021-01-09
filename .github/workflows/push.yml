@@ -10,14 +10,14 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
-      - run: npm ci
+      - run: npm run install:prod:full
       - run: npm run eslint
       - run: npm run stylelint
       - run: npm run svelte:check
       - run: npm run fontello
       - run: cp template.env .env
       - run: npm run build
-      - run: npm run test:headless:prod
+      - run: npm run test:prod
       - name: set up QEMU
         uses: docker/setup-qemu-action@v1
       - name: set up Docker Buildx
