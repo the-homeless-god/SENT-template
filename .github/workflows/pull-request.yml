@@ -30,6 +30,7 @@ jobs:
 
   container:
     name: build container
+    runs-on: ubuntu-latest
     steps:
       - name: build application
         run: npm run install:prod:full && npm run fontello && npm run build
