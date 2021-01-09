@@ -1,7 +1,7 @@
 {
   "author": "Marat Zimnurov <zimit@mail.ru>",
   "dependencies": {
-    "swagger-ui-express": "^4.1.5"
+    "swagger-ui-express": "^4.1.6"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
