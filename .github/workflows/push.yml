@@ -18,7 +18,6 @@ jobs:
       - run: cp template.env .env
       - run: npm run build
       - run: npm run test:prod
-
       - name: set up QEMU
         uses: docker/setup-qemu-action@v1
 

@@ -7,6 +7,10 @@
 ![Logo](https://github.com/Zimtir/SENT-template/blob/master/public/assets/img/logo.png?raw=true)
 
 ![GitHub package.json version](https://img.shields.io/github/package-json/v/Zimtir/SENT-template?style=for-the-badge)
+![GitHub issues](https://img.shields.io/github/issues/Zimtir/SENT-template)
+![GitHub forks](https://img.shields.io/github/forks/Zimtir/SENT-template)
+![GitHub stars](https://img.shields.io/github/stars/Zimtir/SENT-template)
+![GitHub license](https://img.shields.io/github/license/Zimtir/SENT-template)
 
 ![GitHub issues](https://img.shields.io/github/issues/Zimtir/SENT-template)
 ![GitHub forks](https://img.shields.io/github/forks/Zimtir/SENT-template)
