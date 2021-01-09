@@ -1,6 +1,5 @@
-# EditorConfig - это замечательно: http://EditorConfig.org
+# http://EditorConfig.org
 
-# Файл EditorConfig верхнего уровня
 root = true
 
 [*.md]
@@ -9,7 +8,6 @@ trim_trailing_whitespace = false
 [*.(js|ts|svelte)]
 trim_trailing_whitespace = true
 
-# Переводы строк в стиле Unix с пустой строкой в конце файла
 [*]
 indent_style = space
 indent_size = 2
