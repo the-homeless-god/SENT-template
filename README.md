@@ -7,6 +7,10 @@
 ![Logo](https://github.com/Zimtir/SENT-template/blob/master/public/assets/img/logo.png?raw=true)
 
 ![GitHub package.json version](https://img.shields.io/github/package-json/v/Zimtir/SENT-template?style=for-the-badge)
+![GitHub issues](https://img.shields.io/github/issues/Zimtir/SENT-template)
+![GitHub forks](https://img.shields.io/github/forks/Zimtir/SENT-template)
+![GitHub stars](https://img.shields.io/github/stars/Zimtir/SENT-template)
+![GitHub license](https://img.shields.io/github/license/Zimtir/SENT-template)
 
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier?style=for-the-badge)
 [![code formatting: eslint](https://img.shields.io/badge/code%20linter-eslint-brightgreen?style=flat-square)](https://github.com/eslint/eslint?style=for-the-badge)
@@ -14,7 +18,6 @@
 ![build and publish](https://github.com/Zimtir/SENT-template/workflows/build%20and%20publish/badge.svg?style=for-the-badge)
 ![linters and tests](https://github.com/Zimtir/SENT-template/workflows/linters%20and%20tests/badge.svg?style=for-the-badge)
 
-![Docker Image Size (tag)](https://img.shields.io/docker/image-size/9e3u2f0b1/sent-template/latest?logo=Docker&style=for-the-badge)
 ![Docker Stars](https://img.shields.io/docker/stars/9e3u2f0b1/sent-template?logo=Docker&style=for-the-badge)
 
 ![GitHub package.json dependency version (dev dep on branch)](https://img.shields.io/github/package-json/dependency-version/Zimtir/sent-template/dev/rollup?color=green&style=for-the-badge)
@@ -27,7 +30,9 @@
 ![GitHub package.json dependency version (dev dep on branch)](https://img.shields.io/github/package-json/dependency-version/Zimtir/sent-template/dev/@storybook/svelte?color=green&style=for-the-badge)
 ![GitHub package.json dependency version (dev dep on branch)](https://img.shields.io/github/package-json/dependency-version/Zimtir/sent-template/dev/dotenv?color=green&style=for-the-badge)
 ![GitHub package.json dependency version (dev dep on branch)](https://img.shields.io/github/package-json/dependency-version/Zimtir/sent-template/dev/cypress?color=green&style=for-the-badge)
-![GitHub package.json dependency version (dev dep on branch)](https://img.shields.io/github/package-json/dependency-version/Zimtir/sent-template/dev/size-limit?color=green&style=for-the-badge)
+![GitHub package.json dependency version (dev dep on branch)](https://img.shields.io/github/package-json/dependency-version/Zimtir/sent-template/swagger-ui-express?color=green&style=for-the-badge)
+
+![Coverage by tests](https://github.com/Zimtir/SENT-template/blob/master/public/assets/img/coverage.png?raw=true)
 
 ## Design
 
@@ -35,10 +40,23 @@
 
 ## Usage
 
-```shell
-# for Rollup
-npx degit "Zimtir/SENT-template" my-app
-```
+- Create a repository based on SENT-template
+
+  ```shell
+  # for Rollup
+  npx degit "Zimtir/SENT-template" my-app
+  ```
+
+- Install packages
+  - `npm run install:dev` - Install only required packages for simple development (no test support and other tools)
+  - `npm run install:dev:full` - Install all packages
+  - `npm run install:prod:full` - Install all packages to execute tests, storybook and so on at production environment
+  - `npm run install:prod` - Install only required packages to run production
+
+## Testing
+
+- `npm run test:dev` or `npm run test:prod` - Execute all tests
+- Note: setup `IS_CODE_COVERAGE_ENABLED='true'` in environment variables to print at output a coverage by tests
 
 ## Swagger
 
