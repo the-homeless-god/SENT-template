@@ -32,9 +32,7 @@ jobs:
     name: build container
     steps:
       - name: build application
-        run: npm run install:prod:full
-        run: npm run fontello
-        run: npm run build
+        run: npm run install:prod:full && npm run fontello && npm run build
 
       - name: setup Docker launcher
         uses: docker/setup-qemu-action@v1
