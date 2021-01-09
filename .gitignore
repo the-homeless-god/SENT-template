@@ -12,3 +12,5 @@ public/assets/font/
 .env
 .eslintcache
 storybook-static
+.nyc_output
+coverage

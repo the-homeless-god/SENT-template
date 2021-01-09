@@ -17,7 +17,8 @@ const replaceEnvironment = () =>
   })
 
 module.exports = {
-  dev: Boolean(environment.IS_DEVELOPMENT),
+  dev: JSON.parse(environment.IS_DEVELOPMENT),
+  isCodeCoverage: JSON.parse(environment.IS_CODE_COVERAGE_ENABLED),
   legacy,
   replaceEnvironment,
 }

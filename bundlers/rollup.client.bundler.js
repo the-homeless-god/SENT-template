@@ -9,6 +9,7 @@ const commonJsConfig = require('./common.bundler')
 const ioConfig = require('./io.bundler')
 const warnBundler = require('./warning.bundler')
 const resolveConfig = require('./resolve.bundler')
+const testConfig = require('./test.bundler')
 
 module.exports = {
   ...ioConfig.getClientConfig(),
@@ -18,13 +19,14 @@ module.exports = {
     svelteConfig.getClientConfig(),
     resolveConfig.getClientConfig(),
     commonJsConfig.useCommonJs(),
-    typescript({ sourceMap: environmentConfig.dev }),
+    typescript({ sourceMap: environmentConfig.dev, inlineSources: environmentConfig.dev }),
     json(),
     environmentConfig.legacy
       && !environmentConfig.dev
       && terser({
         module: true,
       }),
+    environmentConfig.dev && environmentConfig.isCodeCoverage && testConfig.checkCodeCoverage(),
   ],
   preserveEntrySignatures: false,
 

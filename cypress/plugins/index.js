@@ -12,8 +12,9 @@
 // the project's config changing)
 
 const rollupPreprocessor = require('@bahmutov/cy-rollup')
+const codeCoverage = require('@cypress/code-coverage/task')
 
-module.exports = (on, _config) => {
+module.exports = (on, config) => {
   const options = {
     // Provide an alternative rollup config file.
     // The default is rollup.config.js at the project root.
@@ -23,4 +24,7 @@ module.exports = (on, _config) => {
   // `on` is used to hook into various events Cypress emits
   // `config` is the resolved Cypress config
   on('file:preprocessor', rollupPreprocessor(options))
+  codeCoverage(on, config)
+
+  return config
 }

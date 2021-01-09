@@ -20,7 +20,7 @@ module.exports = {
     svelteConfig.getServerConfig(),
     resolveConfig.getServerConfig(),
     commonJsConfig.useCommonJs(),
-    typescript({ sourceMap: environmentConfig.dev }),
+    typescript({ sourceMap: environmentConfig.dev, inlineSources: environmentConfig.dev }),
   ],
   external: Object.keys(pkg.dependencies).concat(builtinModules || Object.keys(process.binding('natives'))),
   onwarn: warnBundler.onwarn,

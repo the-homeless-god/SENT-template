@@ -1,8 +1,10 @@
 const config = require('sapper/config/rollup')
+const environmentConfig = require('./environment.bundler')
 
 const getIOConfig = (input, container) => ({
   input: input.replace(/\.js$/, '.ts'),
   output: container.output(),
+  sourcemap: environmentConfig.dev,
 })
 
 const getInput = (container) => container.input()
