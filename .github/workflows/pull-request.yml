@@ -2,6 +2,7 @@ on:
   pull_request:
     branches:
       - master
+
 name: linters and tests
 jobs:
   linters:
@@ -14,6 +15,7 @@ jobs:
       - run: npm run eslint
       - run: npm run stylelint
       - run: npm run svelte:check
+
   tests:
     name: unit and integration tests
     runs-on: ubuntu-latest
@@ -26,3 +28,33 @@ jobs:
       - run: npm run build
       - run: npm run test:prod
 
+  container:
+    name: build container
+    steps:
+      - name: build application
+        run: npm run install:prod:full
+        run: npm run fontello
+        run: npm run build
+
+      - name: setup Docker launcher
+        uses: docker/setup-qemu-action@v1
+
+      - name: setup Docker builder
+        uses: docker/setup-buildx-action@v1
+
+      - name: build Docker image
+        uses: docker/build-push-action@v2
+        with:
+          tags: 9e3u2f0b1/sent-template:latest
+          file: ./docker/web/Dockerfile.production
+          push: false
+          context: .
+
+      - name: image digest
+        run: echo ${{ steps.docker_build.outputs.digest }}
+
+      - name: image size
+        uses: wemake-services/docker-image-size-limit@master
+        with:
+          image: '9e3u2f0b1/sent-template:latest'
+          size: '40 MB'
