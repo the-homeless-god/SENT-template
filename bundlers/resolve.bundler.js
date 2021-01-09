@@ -5,7 +5,7 @@ const extensions = ['.js', '.mjs', '.html', '.svelte', '.ts', '.json']
 const dedupe = (importee) => importee === 'svelte' || importee.startsWith('svelte/')
 
 const getClientConfig = () =>
-  resolve({
+  resolve.nodeResolve({
     browser: true,
     jsnext: true,
     extensions,
@@ -13,12 +13,12 @@ const getClientConfig = () =>
   })
 
 const getServerConfig = () =>
-  resolve({
+  resolve.nodeResolve({
     dedupe,
     extensions,
   })
 
-const getServiceWorkerConfig = () => resolve()
+const getServiceWorkerConfig = () => resolve.nodeResolve()
 
 module.exports = {
   getClientConfig,
