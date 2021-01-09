@@ -132,7 +132,7 @@
     "stylelint:scss": "stylelint src/**/*.scss --syntax scss --allow-empty-input",
     "stylelint:css:fix": "npm run stylelint:css --fix",
     "stylelint:scss:fix": "npm run stylelint:scss --fix",
-    "svelte:check": "svelte-check",
+    "svelte:check": "svelte-check --ignore='src/node_modules'",
     "test:dev": "npm run test:headless:dev && npm run test:coverage",
     "test:prod": "npm run test:headless:prod && npm run test:coverage",
     "test:coverage": "nyc report --reporter=text-summary",

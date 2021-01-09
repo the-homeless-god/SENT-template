@@ -9,7 +9,7 @@
   import Header from '../../components/header/Header.svelte'
   import ListContent from '../../components/content/ListContent.svelte'
 
-  const getPosts = async (): Promise<any[]> => await Request.get<any[]>(`${HOST}/blog.json`)
+  const getPosts = async (): Promise<Post[]> => await Request.get<Post[]>(`${HOST}/blog.json`)
 </script>
 
 <GlobalHeader title="Blog" />
