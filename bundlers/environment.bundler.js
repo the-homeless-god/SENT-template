@@ -6,6 +6,8 @@ const mode = process.env.NODE_ENV
 const environment = dotenv.config().parsed || process.env
 const environmentJSON = JSON.stringify(environment)
 
+const getBooleanVariable = (key) => JSON.parse(environment[key] || null)
+
 console.log(environment)
 
 const replaceEnvironment = () =>
@@ -16,8 +18,8 @@ const replaceEnvironment = () =>
   })
 
 module.exports = {
-  dev: JSON.parse(environment.IS_DEVELOPMENT),
-  isCodeCoverage: JSON.parse(environment.IS_CODE_COVERAGE_ENABLED),
-  legacy: JSON.parse(process.env.SAPPER_LEGACY_BUILD),
+  dev: getBooleanVariable('IS_DEVELOPMENT'),
+  isCodeCoverage: getBooleanVariable('IS_CODE_COVERAGE_ENABLED'),
+  legacy: getBooleanVariable('SAPPER_LEGACY_BUILD'),
   replaceEnvironment,
 }
