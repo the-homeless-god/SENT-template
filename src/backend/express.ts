@@ -26,7 +26,10 @@ export const initExpress = (configuration: ExpressConfiguration, routes: Route<u
     .use(
       configuration.router.prefix,
       setupRequestHandler(
-        { ...configuration.router, payload: { routes, app, view: configuration.router.view } },
+        {
+          ...configuration.router,
+          payload: { routes, app, view: configuration.router.view, swagger: configuration.swagger },
+        },
         setupRoutes,
       ),
     )

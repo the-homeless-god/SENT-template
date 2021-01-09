@@ -9,3 +9,5 @@ scripts
 .eslintcache
 template.env
 README.md
+.nyc_output
+coverage

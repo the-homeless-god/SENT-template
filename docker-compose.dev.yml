@@ -1,17 +1,20 @@
 version: '3.5'
 
 services:
-  nodejs:
+  web:
     image: 9e3u2f0b1/sent-template:latest
-    container_name: nodejs
+    container_name: web
     env_file: .env
+    environment: 
+      OPEN_BROWSER_AFTER_BUILD: "false"
     build:
       context: .
-      dockerfile: docker/nodejs/Dockerfile
-    command: npm run start
-    restart: unless-stopped
+      dockerfile: docker/web/Dockerfile.development
+    command: npm run dev
+    tty: true
     ports:
       - '3000:3000'
+      - '10000:10000'
     networks:
       - test-network
 
@@ -33,10 +36,10 @@ services:
       context: .
       dockerfile: docker/test/Dockerfile
     environment:
-      CYPRESS_BASE_URL: http://nodejs:3000
+      CYPRESS_BASE_URL: http://web:3000
     command: npm run test:headless
     depends_on:
-      - nodejs
+      - web
     networks:
       - test-network
 
@@ -49,7 +52,7 @@ services:
       - 80:80/tcp
       - 443:443/tcp
     depends_on:
-      - nodejs
+      - web
     networks:
       - test-network
 

@@ -5,13 +5,9 @@ services:
     image: 9e3u2f0b1/sent-template:latest
     build:
       context: .
-      dockerfile: docker/nodejs/Dockerfile
+      dockerfile: docker/web/Dockerfile.production
     command: npm run start
+    env_file: .env
     restart: unless-stopped
     ports:
       - '3000:3000'
-    volumes:
-      - node_modules:/usr/app/node_modules
-
-volumes:
-  node_modules:

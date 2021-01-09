@@ -11,7 +11,20 @@
 // This function is called when a project is opened or re-opened (e.g. due to
 // the project's config changing)
 
+const rollupPreprocessor = require('@bahmutov/cy-rollup')
+const codeCoverage = require('@cypress/code-coverage/task')
+
 module.exports = (on, config) => {
+  const options = {
+    // Provide an alternative rollup config file.
+    // The default is rollup.config.js at the project root.
+    configFile: './bundlers/rollup.client.bundler.js',
+  }
+
   // `on` is used to hook into various events Cypress emits
   // `config` is the resolved Cypress config
+  on('file:preprocessor', rollupPreprocessor(options))
+  codeCoverage(on, config)
+
+  return config
 }

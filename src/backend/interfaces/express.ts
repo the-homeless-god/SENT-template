@@ -19,6 +19,7 @@ export interface RouterPayload {
   routes: Route<unknown>[]
   app: Express
   view: Setting
+  swagger: Setting
 }
 
 export interface ExpressConfiguration {
@@ -37,6 +38,7 @@ export interface ExpressConfiguration {
   compression: Setting & {
     payload: CompressionPayload
   }
+  swagger: Setting
   security: Setting
   listen: Setting
   port: number
