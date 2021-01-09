@@ -1,13 +1,13 @@
-const warningText = 'Use of eval is strongly discouraged, as it poses security risks and may cause issues with minification'
-const warningIsIgnored = (warning) => warning.message.includes(warningText)
+const warningIsIgnored = (warning) =>
+  warning.message.includes('Use of eval is strongly discouraged, as it poses security risks and may cause issues')
   || warning.message.includes('Circular dependency: node_modules')
+  || warning.message.includes('Unknown input options: sourcemap')
   || warning.code === 'THIS_IS_UNDEFINED'
-  || warning.message.includes(
-    'If it is for external reference only, please consider using `export const preload`',
-  )
+  || warning.message.includes('If it is for external reference only, please consider using `export const preload`')
 
 // Workaround for https://github.com/sveltejs/sapper/issues/1266
-const onwarn = (warning, _onwarn) => (warning.code === 'CIRCULAR_DEPENDENCY' && /[/\\]@sapper[/\\]/.test(warning.message))
+const onwarn = (warning, _onwarn) =>
+  (warning.code === 'CIRCULAR_DEPENDENCY' && /[/\\]@sapper[/\\]/.test(warning.message))
   || warningIsIgnored(warning)
   || console.warn(warning.toString())
 
