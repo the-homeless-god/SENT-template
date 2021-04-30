@@ -153,7 +153,7 @@
     "@cypress/code-coverage": "^3.9.1",
     "@storybook/addon-a11y": "^6.1.10",
     "@storybook/addon-actions": "^6.1.11",
-    "@storybook/addon-docs": "^6.1.10",
+    "@storybook/addon-docs": "^6.2.9",
     "@storybook/addon-knobs": "^6.1.10",
     "@storybook/addon-links": "^6.1.10",
     "@storybook/addon-storysource": "^6.1.10",
