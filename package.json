@@ -30,7 +30,7 @@
     "fontello-cli": "^0.6.2",
     "helmet": "^4.2.0",
     "node-sass": "^5.0.0",
-    "open": "^7.3.1",
+    "open": "^8.2.1",
     "rollup": "^2.36.1",
     "rollup-plugin-scss": "^2.6.1",
     "rollup-plugin-svelte": "~6.1.1",
