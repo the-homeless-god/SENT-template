@@ -164,7 +164,7 @@
     "@typescript-eslint/eslint-plugin": "^4.0.0",
     "@typescript-eslint/parser": "^3.10.1",
     "babel-plugin-istanbul": "^6.0.0",
-    "cypress": "^5.6.0",
+    "cypress": "^9.5.4",
     "eslint": "^7.15.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-import-resolver-typescript": "^2.3.0",
