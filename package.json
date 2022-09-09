@@ -38,7 +38,7 @@
     "sapper": "^0.28.10",
     "sass-loader": "^11.0.1",
     "style-loader": "^2.0.0",
-    "svelte": "^3.31.2",
+    "svelte": "^3.50.1",
     "svelte-check": "^1.1.26",
     "svelte-loader": "^2.13.6",
     "svelte-preprocess": "^4.6.1",
